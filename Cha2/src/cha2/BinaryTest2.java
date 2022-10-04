@@ -1,4 +1,4 @@
-package binary;
+package cha2;
 
 public class BinaryTest2 {
 
