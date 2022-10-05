@@ -12,6 +12,6 @@ public class Student {
 	
 	// ¸Þ¼­µå ¼Ä¼º
 	public void showStudentInfor() {
-		System.out.println(studentName  + " , " + address);
+		System.out.println(studentName  + " , " + address); 
 	}
 }
