@@ -1,7 +1,8 @@
 package cha5;
 
 // 클래스 생성하기 : 학생
-// class(예약어) class명 {} 
+// class(예약어) class명 {}
+// class 명 : 맨 앞글자 대문자 , 메소드명 : 소문자
 public class Student {
 	
 	// 변수 생성
