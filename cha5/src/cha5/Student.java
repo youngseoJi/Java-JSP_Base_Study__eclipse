@@ -11,7 +11,6 @@ public class Student {
 	String address; // 주소
 	
 	// 메서드 셍성
-	
 	public void showStudentInfor() {
 		System.out.println(studentName + " , " + address);
 	}
