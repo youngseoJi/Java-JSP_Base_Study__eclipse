@@ -8,7 +8,7 @@ public class WhileEx {
 		int num = 1;
 		int sum = 0;
 		
-		// while(반복문 조건) :  참인경우 무한반복
+		// while(반복 조건식) :  참인경우 무한반복
 		while(num <= 10) {
 			sum += num;
 			num++;
@@ -30,7 +30,7 @@ public class WhileEx {
 			sum2 += num2;
 			num2++;
 		}
-		// while(반복문 조건) :   참인경우 무한반복
+		// while(반복 조건식) :   참인경우 무한반복
 		while(num2 < 1 );
 		// false 거짓인 겨우 while문 탈출, {} 밖의 코드 출력
 		System.out.println(sum2 + "입니다 .");	 // 1입니다 .
