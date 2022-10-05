@@ -17,7 +17,7 @@ public class BreakEx {
 			// 100 보다 sum이 커지면, 자기를 감싸고 있는 반복문만 탈출한다.
 			if (sum > 100)
 				break;
-			num++;
+			num++;  
 			
 			}
 			

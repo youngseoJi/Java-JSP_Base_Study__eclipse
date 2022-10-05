@@ -29,7 +29,7 @@ public class ForEx {
 		// 내부 반복문 : 1 부터 9까지 반복해서 출력 및 +1 씩 값을 더한다.
 		while (times2 <= 9) {
 			System.out.println(dan2 + "X" + times2 + "=" + dan2*times2);
-			times2++; 
+			times2++ ; 
 		}
 		// 내부 반복문이 끝나면 증가
 		dan2++;

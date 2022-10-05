@@ -16,7 +16,7 @@ public class ContinueEx {
 			}
 			total += num;
 		}
-		System.out.println(total); //2550
+		System.out.println(total); //2550 
 	}
 
 }

@@ -18,7 +18,7 @@ public class SwichCase {
 				break;
 		// default 문 -> 모든 case 경우에 false일 경우 출력
 		default: medal = 'A';
-//		break; 생략가능 
+//		break; 생략가능  
 		}
 		System.out.println(rank +"등 메달의 색깔은 " + medal + "입니다. ");
 	}

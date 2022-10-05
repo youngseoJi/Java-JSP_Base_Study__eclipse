@@ -21,7 +21,7 @@ public class SwitchCase2 {
 		default:
 			day = 0;
 //			break; 생략가능 
-		}
+		} 
 		System.out.println(month + "월은 " + day + "일 까지 있습니다. ");
 	}
 
