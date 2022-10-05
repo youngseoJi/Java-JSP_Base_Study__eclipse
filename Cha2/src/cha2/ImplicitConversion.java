@@ -23,11 +23,12 @@ public class ImplicitConversion {
 		System.out.println(fNum);
 
 		// 1. 더해지는 연산 실수 + 정수 -> float 실수로 자동 형변환
-		// 2. 더해진 값이 double 로 자동 형변환 된다.
+		// 2. 더해진 값이 float 보다 double 더 큰 타입으로 자동 형변환
 		
 		double dNum = fNum + num;
 		
 		System.out.println(dNum); // 20.0
+	
 		
 	}
 
