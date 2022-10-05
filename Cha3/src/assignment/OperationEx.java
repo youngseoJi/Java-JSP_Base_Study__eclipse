@@ -4,7 +4,7 @@ public class OperationEx {
 
 	public static void main(String[] args) {
 		
-		/* 대입 연산자 (단항)
+		/* 대입 연산자 
 		* 우선순위가 가장 낮는 연산자 , 모든 연산 후 마지막에 대입됨
 		* 변수의 값을 변경하는 연산자
 		*/

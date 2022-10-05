@@ -4,7 +4,7 @@ public class OperationEx2 {
 
 	public static void main(String[] args) {
 
-		/* 산술연산자 (단항)
+		/* 산술연산자 
 		* 사칙연산에 사용됨 : / * - + %
 		* % 는 나머지 구하는 연산자 : 숫자 n의 나머지는 0 ~ n-1 범위의수*/
 		
