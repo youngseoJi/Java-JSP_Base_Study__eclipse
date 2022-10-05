@@ -6,6 +6,7 @@ public class ForEx {
 		/* 중첩 반복문
 		* 외부 반목문 1회 실행 -> 내부 반목문 처음부터 끝까지 실행
 		*/
+		
 		int dan;
 		int times;
 		// 외부 반복문 : 1 부터 9단 까지 
@@ -30,6 +31,7 @@ public class ForEx {
 			System.out.println(dan2 + "X" + times2 + "=" + dan2*times2);
 			times2++; 
 		}
+		// 내부 반복문이 끝나면 증가
 		dan2++;
 		// 내부 반복문 종료할때마다 실행할 코드 : 한칸 띄기 
 		System.out.println();
