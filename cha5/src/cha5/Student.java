@@ -11,12 +11,24 @@ public class Student {
 	int grade; // 학년
 	String address; // 주소
 	
-	// 메서드 셍성
+	// 메서드 셍성 - 반환값이 없는 경우 void를 적음
 	public void showStudentInfor() {
 		System.out.println(studentName  + " , " + address); 
 	}
 	
+	// 반환값이 있는 경우 값의 타입을 적음
+	public String getStudentName() {
+		return studentName;
+	}
+	
+	public void setStudentName(String name) {
+		studentName = name;
+	}
+	
+	
+	
 	// 클래스를 사용하기 위한  메인 메서드가 해당 클래스 내에 있을 수 있지만,다른 클래스에서 작동할 수 있다.
+	
 /*	// 메인 메서드 (함수) 실행 : 해당 클래스를 실행하기 위한 메서드
 	public static void main(String[] args) {
 		
