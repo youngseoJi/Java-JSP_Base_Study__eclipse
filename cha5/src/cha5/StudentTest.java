@@ -14,7 +14,7 @@ public class StudentTest {
 		studentJi.studentID = 1;
 		studentJi.address = "서울시 도렴동";*/
 		
-		// 디폴트 생성자 new로 호출하여 사용
+		// Student 클래스 생성 : 디폴트 생성자 new로 호출하여 사용 
 		Student studentKim = new Student();
 		
 		studentKim.studentName = "김씨";
