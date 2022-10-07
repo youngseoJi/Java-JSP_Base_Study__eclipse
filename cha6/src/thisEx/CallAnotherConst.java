@@ -31,7 +31,7 @@ public class CallAnotherConst {
 		System.out.println(p1.name); // 이름없음 
 		System.out.println(p1.age); // 1
 		
-		System.out.println(p1.returnSelf()); 
+		System.out.println(p1.returnSelf()); //thisEx.Person@606d8acf
 	
 	}
 
