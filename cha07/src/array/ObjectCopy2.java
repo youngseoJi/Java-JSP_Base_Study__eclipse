@@ -1,7 +1,8 @@
 package array;
 
-// 객체배열 얕은 복사  : 같은 인스턴스 객체를 가리키고 있어서 주소복사, 동일한 인스턴스의 메모리를 요소로 갖음
-public class ObjesctCopy {
+
+	//객체배열 깊은 복사 : 서로 다른 인스턴스의 메모리를 요소로 갖음
+public class ObjectCopy2 {
 
 	public static void main(String[] args) {
 
@@ -12,11 +13,10 @@ public class ObjesctCopy {
 		bookArr1[1] = new Book("책2", "작가2");
 		bookArr1[2] = new Book("책3", "작가3");
 
-		// arraycopy : 배열 복사 메소드
-//		System.arraycopy(src, srcPos, dest, destPos, length);
-// 						무엇을, 어디서부터, 어디다가, 어디서부터, 총 몇개를, 복사할것인지 
-		System.arraycopy(bookArr1, 0, bookArr2, 0, 3);
-		
+		bookArr2[0] = new Book();
+		bookArr2[1] = new Book();
+		bookArr2[2] = new Book();
+
 		for(int i = 0; i < bookArr2.length; i++) {
 			bookArr2[i].showBookInfomation();
 		}
