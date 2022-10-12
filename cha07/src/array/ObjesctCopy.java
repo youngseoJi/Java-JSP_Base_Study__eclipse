@@ -1,6 +1,7 @@
 package array;
 
-// 객체배열의 얕은 복사  -> 같은 인스턴스 객체를 가리키고 있어서 주소복사, 동일한 인스턴스객체를 갖는 것 
+// 객체배열의 얕은 복사  
+// -> 같은 인스턴스 객체를 가리키고 있어서 주소복사, 동일한 인스턴스의 메모리를 요소로 갖음
 public class ObjesctCopy {
 
 	public static void main(String[] args) {
