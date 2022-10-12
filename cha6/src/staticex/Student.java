@@ -1,5 +1,6 @@
 package staticex;
 
+// Student 클래스 - 클래스 외부에는 import 외에는 아무것도 선언할 수 없다.
 public class Student {
 	
 	// 데이터 영역 
