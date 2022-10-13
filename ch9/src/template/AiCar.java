@@ -16,5 +16,11 @@ public class AiCar extends Car{
 		
 	}
 
+
+	@Override
+	public void washCar() {
+		System.out.println("자동세차");
+	}
+	
 	
 }

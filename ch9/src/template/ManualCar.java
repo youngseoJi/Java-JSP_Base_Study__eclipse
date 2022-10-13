@@ -16,5 +16,4 @@ public class ManualCar extends Car{
 		System.out.println("사람이 브레이크");
 	}
 	
-	
 }
