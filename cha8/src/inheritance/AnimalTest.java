@@ -39,8 +39,7 @@ public class AnimalTest {
 	
 	// 메소드 : 매개변수  animal
 	public void moveAnimal(Animal animal) {
-		animal.move();
-		// 코드 한줄에 대한 결과가 다양하다 . 다향성
+		animal.move(); // <- 코드 한줄에 대한 결과가 다양하다 . 다향성
 	}
 
 }
