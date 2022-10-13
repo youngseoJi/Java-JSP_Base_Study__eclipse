@@ -7,14 +7,14 @@ public class Customer {
 	protected String customerName; // 이름
 	protected String customerGrade; // 등급
 	int bonuspoint; // 포인트
-	protected double bonusRatio; // 포인트 쌓이는 비율
-	/* 디폴트 새성자
+	double bonusRatio; // 포인트 쌓이는 비율
+	// 디폴트 새성자
 	public Customer ()
 	{
 	  customerGrade = "SILVER";
 	  bonusRatio = 0.01;
 	}
-	*/
+
 	// 고객 생성자 : 필수 매개변수
 	public Customer (int customerID, String customerName) {
 		this.customerID = customerID;
