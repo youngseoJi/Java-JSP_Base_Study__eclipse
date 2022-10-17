@@ -1,4 +1,4 @@
-package interfaceex;
+package calculator;
 
 // interface 에서 선언한 메서드와 변수 : 모두 추상화 메서드 & 상수
 

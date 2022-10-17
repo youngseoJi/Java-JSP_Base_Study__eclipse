@@ -1,4 +1,4 @@
-package interfaceex;
+package calculator;
 
 // implements : 타입상속 , 인터페이스 상속 
 // 추상 클래스 : 이유 ? 상속받은 메서드 중 일부 메서드만 구현해서
