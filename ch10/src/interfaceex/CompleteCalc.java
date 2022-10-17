@@ -22,5 +22,13 @@ public class CompleteCalc extends Calculator{
 	public void showInfo() {
 		System.out.println("Calc 인터페이스 구현");
 	}
+
+	// 재정의 - Calculator 인터페이스의에서 상속받은 디폴트 메서드  재정의
+	@Override
+	public void description() {
+		System.out.println("모든 계산이 가능한 계산기");
+	}
+	
+	
 	
 }
