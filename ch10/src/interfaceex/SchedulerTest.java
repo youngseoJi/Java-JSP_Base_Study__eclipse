@@ -8,9 +8,9 @@ public class SchedulerTest {
 
 		
 		System.out.println("전화 상담 배분방식 선택- A,B,C");
-		// ASCII 코드 값 호출 -> 받은 문자를 그대로 표시하고 싶다면 자료형 char로 형변환
+		// System.in.read(); ASCII 코드 값 호출 -> 받은 문자를 그대로 표시하고 싶다면 자료형 char로 형변환
 		int ch = System.in.read(); // IOException
-		Scheduler scheduler = null;// 초기화
+		Scheduler scheduler = null; // 초기화
 		
 		// 배분방식이 무엇이냐에 따라서(문자 타입이 무엇이냐에 따라서), 다른 인스턴스 생성 - 다른 구현 객체 생성
 		if(ch == 'A' || ch == 'a') {
