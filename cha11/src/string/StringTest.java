@@ -20,7 +20,8 @@ public static void main(String[] args) {
 	
 	str5 = str5.concat(str6);
 	
-	// new 로 생성한 문자열을 연결할때마다 매번 새로운 메모리를 생성한다. 가비지, 사용안하는 메모리가 너무 많아진다.
+	// new 로 생성한, String 클래스 문자열을 연결할때마다 매번 새로운 메모리를 생성한다. 가비지, 사용안하는 메모리가 너무 많아진다.
+    // -> 해결방안 StringBuilder, StringBuffer 사용하기 
 	System.out.println(str5); //abcdef
 	
 }
