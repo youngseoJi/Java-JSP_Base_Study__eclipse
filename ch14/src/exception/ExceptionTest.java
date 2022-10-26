@@ -8,7 +8,7 @@ public class ExceptionTest {
 
 	public static void main(String[] args) {
 		
-		// finally 구문이 없어도 close()가 자동실행된다.
+		//  try with catch 구문 사용시 finally 구문이 없어도 close()가 자동실행된다.
 		
 		// 파일을 읽어들이는 클래스
 		try (FileInputStream fis = new FileInputStream("a.txt")){
