@@ -12,6 +12,7 @@ public class Number {
 		System.out.println(6 / 2);
 		
 		// Math 수학적 메소드
+		// http://bit.ly/2NkH7J4 https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html
 		
 		System.out.println(Math.PI);
 		// 내림 메소드
