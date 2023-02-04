@@ -23,6 +23,8 @@ public class HelloWorldGUIApp{
 
                 frame.pack();
                 frame.setVisible(true);
+                System.out.println();
+                // ctrl + space 자동완성
             }
         });
     }
