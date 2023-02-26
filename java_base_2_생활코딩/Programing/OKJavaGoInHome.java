@@ -13,7 +13,7 @@ import org.opentutorials.iot.Security;
 public class OKJavaGoInHome {
 	 
 	public static void main(String[] args) {
-
+//.
 		// 중복제거 / 동일한 부분 동시 변경가능
 		String id = "JAVA APT 102";
 
