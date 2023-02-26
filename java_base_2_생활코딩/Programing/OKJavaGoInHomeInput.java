@@ -25,7 +25,7 @@ public class OKJavaGoInHomeInput {
 		
 		
 		// 2. Security off  : 보안 꺼지는 기능
-		
+		// .
 		Security mySecutity = new Security(id);
 		mySecutity.off();
 		
