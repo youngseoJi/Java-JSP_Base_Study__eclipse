@@ -4,7 +4,6 @@ import org.opentutorials.iot.Lighting;
 import org.opentutorials.iot.Security;
 
 
-
 // import 특정 클래스 갖고오기 - Elevator
 
 // 이미 있는 것을 활용하여 프로그램 만들어보기 - 이해하기 
@@ -36,10 +35,11 @@ public class OKJavaGoInHome {
 		// 3. Light on : 자동 불켜지는 기능
 		
 		Lighting hallLamp = new Lighting(id + " / HallLamp");
-		hallLamp.on(); // 거실 등 끄기
+		hallLamp.on(); // 거실 등 키기
 		
 		Lighting floorLamp = new Lighting(id + " / floorLamp");
-		floorLamp.on(); // 스탠드 끄기
+		floorLamp.on(); // 스탠드 키기
+		
 	}
 
 }
