@@ -11,7 +11,7 @@ import org.opentutorials.iot.Security;
 
 // 프로그램을 통해서 많은 일을 자동화할 수 있음을 알아라
 public class OKJavaGoInHome {
-	
+	 
 	public static void main(String[] args) {
 
 		// 중복제거 / 동일한 부분 동시 변경가능
