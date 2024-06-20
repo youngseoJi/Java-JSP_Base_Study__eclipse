@@ -13,13 +13,14 @@ import egovframework.example.sample.service.DeptV0;
 @Controller
 public class DeptController {
 
+	// 데이터입력
 	@RequestMapping(value = "/deptWrite.do")
 	public String deptWrite() {
 
 		return "dept/deptWrite";
 	}
 
-	// 데이터 전달 
+	// 데이터 저장 
 	// 데이터 입력/전송 -> /deptWriteSave.do -> 메소드에 데이터 전달 -> vo에 데이터 저장 -> vo메소드 이용하여 데이터 다루기 
 	@RequestMapping(value = "/deptWriteSave.do")
 	public String deptWriteSave(DeptV0 vo) {

@@ -8,6 +8,7 @@ public class DeptV0 {
 	private String dname;
 	private String loc;
 	
+	// 데이터를 사용하기 위한
 	// 같은 프로젝트 내에서 접근 할 수 있도록하는 메소드생성 
 	
 	public String getDeptno() {
