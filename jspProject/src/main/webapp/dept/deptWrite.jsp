@@ -21,9 +21,9 @@ th, td {
 
 <body>
 	<!-- 부서  -->
-	<form name="frm" method="post" action="">
+	<form name="frm" method="post" action="deptWriteSave.do">
+	
 		<table>
-
 			<tr>
 				<th>부서번호</th>
 				<td><input type="text" name="deptno"></td>
