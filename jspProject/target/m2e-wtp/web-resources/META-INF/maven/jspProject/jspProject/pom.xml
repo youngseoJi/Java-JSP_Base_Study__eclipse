@@ -22,6 +22,12 @@
 	</properties>
 
 	<repositories>
+				<!-- 오라클 설정 S-->
+				<repository>
+  					<id>codeslds</id>
+  					<url>https://code.ids.org/nexus/content/groups/main-repo</url>
+				</repository>
+				<!-- 오라클 설정 E-->
         <repository>
             <id>mvn2s</id>
             <url>https://repo1.maven.org/maven2/</url>
@@ -44,7 +50,24 @@
 		</repository>
     </repositories>
 
-	<dependencies>
+	
+			<!-- 오라클 설정 S-->
+				<dependencies>
+					<dependency>
+			    <groupId>com.oracle.ojdbc</groupId>
+			    <artifactId>ojdbc8</artifactId>
+			    <version>19.3.0.0</version>
+			</dependency>
+
+			
+		
+			<dependency>
+			  <groupId>commons-dbcp</groupId>
+			  <artifactId>commons-dbcp</artifactId>
+			  <version>1.4</version>
+			</dependency>
+			<!-- 오라클 설정 E-->
+			
 		<!-- 표준프레임워크 실행환경 -->
         <dependency>
 		    <groupId>org.egovframe.rte</groupId>
