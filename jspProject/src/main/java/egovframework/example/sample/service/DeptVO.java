@@ -1,6 +1,6 @@
 package egovframework.example.sample.service;
 
-public class DeptV0 {
+public class DeptVO {
 	
 	// 객체지향 : 캡슐화(접근지정자 세팅) private 사용
 	
@@ -32,3 +32,4 @@ public class DeptV0 {
 	
 	
 }
+	
