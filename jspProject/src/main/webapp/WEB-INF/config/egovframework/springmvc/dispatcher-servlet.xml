@@ -46,7 +46,7 @@
 
     <bean class="org.springframework.web.servlet.view.UrlBasedViewResolver" p:order="1"
 	    p:viewClass="org.springframework.web.servlet.view.JstlView"
-	    p:prefix="/" p:suffix=".jsp"/> 
+	    p:prefix="/" p:suffix=".jsp" /> 
 	    
 	    <!-- / 는 webapp/경로이다. jsp파일은 이 경로 위에, 밖에 위치 할 수는 없다. -->
 	    <!-- p:prefix="/WEB-INF/jsp/egovframework/example/" p:suffix=".jsp" -->

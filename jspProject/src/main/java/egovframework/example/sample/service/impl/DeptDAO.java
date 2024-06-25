@@ -13,7 +13,8 @@ public class DeptDAO  extends EgovAbstractDAO {
 
 	public String InsertDept(DeptVO vo) {
 		// TODO Auto-generated method stub
-		return (String) insert("deptDAO.insertDept", vo);
+								//sql아이디
+		return "";
 	}
 
 }
