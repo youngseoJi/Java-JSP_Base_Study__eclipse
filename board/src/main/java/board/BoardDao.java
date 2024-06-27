@@ -18,6 +18,10 @@ import common.JdbcUtil;
  */
 public class BoardDao {
 	private JdbcUtil ju;
+	
+	public BoardDao() {
+	  ju = JdbcUtil.getinstance();
+	} 
 
 	   /**
      * 새로운 게시글을 데이터베이스에 삽입합니다.

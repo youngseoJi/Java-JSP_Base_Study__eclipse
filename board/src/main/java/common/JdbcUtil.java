@@ -44,7 +44,7 @@ public class JdbcUtil {
 	private JdbcUtil() {}
 	
 	// 객체가 필요할경우 호출하여 JdbcUtil 인스턴스 반환 	   
-	public JdbcUtil getinstance() {
+	public static JdbcUtil getinstance() {
 		return instance;
 	}
 	
