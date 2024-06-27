@@ -7,8 +7,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-// 데이터 베이스에 접근하는 유틸리티 클래스 정의
-//- CRUD에 해당하는 쿼리들을 전송하는 기능
+
 //  이 클래스는 JNDI를 통해 데이터베이스 커넥션 풀을 설정하고, 데이터베이스 연결을 제공하는 기능을 수행함.
 
 public class JdbcUtil {

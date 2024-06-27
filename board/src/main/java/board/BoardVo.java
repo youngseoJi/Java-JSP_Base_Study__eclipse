@@ -6,7 +6,7 @@ import java.util.Date;
 // 테이블의 ~명과 매칭시켜주는게 좋다 : 이유는 ~
 
 //게시글 1개의 정보를 담을수 있는 클래스 정의 
-public class BoarVo {
+public class BoardVo {
 	
 	private int num; 
 	private String title;
@@ -16,12 +16,12 @@ public class BoarVo {
 	private int cnt;
 	
 	//  default 기본 생성자
-	public BoarVo() {
+	public BoardVo() {
 		
 	}
 	
 	//	생성자
-	public BoarVo(int num, String title, String writer, String content, Date regdate, int cnt) {
+	public BoardVo(int num, String title, String writer, String content, Date regdate, int cnt) {
 		super();
 		this.num = num;
 		this.title = title;
