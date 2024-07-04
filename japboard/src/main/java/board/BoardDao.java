@@ -119,7 +119,7 @@ public class BoardDao {
     		con = ju.getConnection();
     		pstmt = con.prepareStatement(query);
     		pstmt.setInt(1, num);
-    		rs = pstmt.executeQuery(query);// 쿼리를 담아 전송
+    		rs = pstmt.executeQuery();
     		
     		
     		// 값이 있다면/결과가 있다면 BoardVo 객체 생성 
@@ -128,7 +128,7 @@ public class BoardDao {
     				  rs.getInt(1),
     				  rs.getString(2), 
     				  rs.getString(3),
-    				  rs.getString(5),
+    				  rs.getString(4),
     				  new Date(rs.getDate(5).getTime()),
     				  rs.getInt(6) 
     				  );

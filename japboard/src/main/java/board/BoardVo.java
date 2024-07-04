@@ -3,6 +3,10 @@ package board;
 import java.util.Date;
 
 // "NUM", "TITLE", "WRITER", "CONTENT", "REGDATE", "CNT"
+//테이블의 ~명과 매칭시켜주는게 좋다 : 이유는 ~
+
+//게시글 1개의 정보를 담을수 있는 클래스 정의 
+
 public class BoardVo {
     private int num;
     private String title;
@@ -11,16 +15,17 @@ public class BoardVo {
     private Date regdate;
     private int cnt;
     
+	//  default 기본 생성자
     public BoardVo() {}
     
 	public BoardVo(int num, String title, String writer, String content, Date regdate, int cnt) {
 		super();
-		this.num = num;
-		this.title = title;
-		this.writer = writer;
-		this.content = content;
-		this.regdate = regdate;
-		this.cnt = cnt;
+		this.num = num; // 번호
+		this.title = title; // 제목
+		this.writer = writer; // 작성자
+		this.content = content; //내용
+		this.regdate = regdate; // 등록일
+		this.cnt = cnt; // 조회수 
 	}
 	public int getNum() {
 		return num;
@@ -59,6 +64,8 @@ public class BoardVo {
 		this.cnt = cnt;
 	}
 	
+
+	//값 확인을 위한
 	@Override
 	public String toString() {
 		return "BoardVo [num=" + num + ", title=" + title + ", writer=" + writer + ", content=" + content + ", regdate="
