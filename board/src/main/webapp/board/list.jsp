@@ -5,7 +5,9 @@
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     <%
     	BoardDao dao = new BoardDao();
-    	List<BoardVo> ls = dao.selectAll();%>
+    	List<BoardVo> ls = dao.selectAll();
+    	pageContext.setAttribute("ls", ls);
+    	%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +17,7 @@
 <body>
 <h2>게시글 목록</h2>
 <c:forEach var="board" items="${ls}">
-<p>${board}</p>
+    <p>${board.title}, 작성자: ${board.writer}, 내용: ${board.content}</p>
 </c:forEach>
 
 </body>

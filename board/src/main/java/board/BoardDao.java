@@ -78,7 +78,7 @@ public class BoardDao {
 
 	/**
      * 데이터베이스에서 모든 게시글을 조회합니다.
-     * @return 게시글 정보를 담은 BoardVo 객체 리스트
+     * @return 게시글 정보를 담은 BoardVo 객체 리스트4
      */
 
 	public List<BoardVo> selectAll(){
