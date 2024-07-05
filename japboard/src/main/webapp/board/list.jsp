@@ -1,8 +1,12 @@
+
+<!-- page 지시어는 이 JSP 파일이 Java를 사용하며, 
+		 콘텐츠 타입과 캐릭터 세트, 페이지 인코딩을 설정합니다. 
+		 import를 통해 board 패키지의 모든 클래스를 가져옵니다. -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" 
 pageEncoding="UTF-8" import="board.*, java.util.List"%>
 
 
-<!--  지시어: JSTL 코어 라이브러리를 사용하기 위해 선언합니다. 
+<!-- taglib_ 지시어: JSTL 코어 라이브러리를 사용하기 위해 선언합니다. 
 		 JSTL 태그는 반복, 조건문 등을 처리할 때 유용하게 사용됩니다. -->
 		 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
