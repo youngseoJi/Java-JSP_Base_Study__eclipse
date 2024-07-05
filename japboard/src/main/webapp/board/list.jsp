@@ -44,6 +44,10 @@ pageEncoding="UTF-8" import="board.*, java.util.List"%>
 	<tr>
 		<td>${board.num}</td>
 		<td>
+		
+		<!-- 일반적인 HTML 하이퍼링크 사용 
+		${pageContext.request.contextPath}는 애플리케이션의 루트 경로를 동적으로 가져옴!
+		-->
 		<a href="${pageContext.request.contextPath}/board/boardDetail.jsp?num=${board.num}">${board.title}</a>
 		
 		</td>
@@ -56,6 +60,8 @@ pageEncoding="UTF-8" import="board.*, java.util.List"%>
 </table>
 
 <!-- 게시글 등록버튼 -->
+<!-- JSTL c: 태그를 사용 -->
+
 <a href="<c:url value="/board/registForm.jsp"/>"><button>게시글 등록</button></a>
 </body>
 </html>
