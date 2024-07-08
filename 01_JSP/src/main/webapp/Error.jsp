@@ -9,5 +9,7 @@
 <body>
 에러페이지!!!! 
 
+<a href="pageDirective.jsp">이전 페이지</a>
+
 </body>
 </html>
