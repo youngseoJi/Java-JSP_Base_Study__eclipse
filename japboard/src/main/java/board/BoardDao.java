@@ -24,7 +24,7 @@ public class BoardDao {
 	public int insert(BoardVo vo) {
 		Connection con = null;
 	    PreparedStatement pstmt = null;
-	    String query = "insert into \"BOARD\" (\"NUM\", \"TITLE\", \"WRITER\", \"CONTENT\", \"REGDATE\", \"CNT\") VALUES (BOARD_SEQ.nextval, ?, ?, ?, SYSDATE, 0)";
+	    String query = "insert into BOARD (NUM, TITLE, WRITER, CONTENT, REGDATE, CNT) VALUES (BOARD_SEQ.nextval, ?, ?, ?, SYSDATE, 0)";
 	    int ret = -1;
 	    try {
 	        con = ju.getConnection();
@@ -60,7 +60,7 @@ public class BoardDao {
 	    Connection con = null;
 	    Statement stmt = null;
 	    ResultSet rs = null;
-	    String query = "select \"NUM\", \"TITLE\", \"WRITER\", \"CONTENT\", \"REGDATE\", \"CNT\" from BOARD";
+	    String query = "select NUM, TITLE, WRITER, CONTENT, REGDATE, CNT from BOARD order by NUM DESC";
 	    ArrayList<BoardVo> ls = new ArrayList<BoardVo>();
 	    try {
 	        con = ju.getConnection();
