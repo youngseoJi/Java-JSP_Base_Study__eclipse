@@ -39,7 +39,10 @@
 
 		<!-- form 
 				action : 현재 페이지에서 작성한 정보를 넘겨주는 파일명  
-				method : 전송방식 -->
+				method : 전송방식 
+				
+			  request 범위 RequestLoginProc.jsp 해당 페이지 까지만 사용할수있다.
+				-->
 
 		<form action="RequestLoginProc.jsp" method="post">
 			<table>
