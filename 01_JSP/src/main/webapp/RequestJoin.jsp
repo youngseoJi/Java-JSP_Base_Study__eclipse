@@ -59,13 +59,13 @@ td {
 				<tr>
 					<td class="labelTd">아이디</td>
 					<td class="inputTd">
-						<input type="text" name="id">
+						<input type="text" name="id" placeholder="id를 입력해주세요">
 					</td>
 				</tr>
 				<tr>
 					<td class="labelTd">패스워드</td>
 					<td class="inputTd">
-						<input type="password" name="password">
+						<input type="password" name="password" placeholder="비밀번호는 영문과 숫자만 입력해주세요.">
 					</td>
 				</tr>
 				<tr>
@@ -96,12 +96,12 @@ td {
 					</td>
 				</tr>
 						<tr>
-				<td class="labelTd">연</td>
+				<td class="labelTd">연령</td>
 					<td class="inputTd">
-						<input type="radio" name="hobby" value="10"> 10대
-						<input type="radio" name="hobby" value="20"> 20대
-						<input type="radio" name="hobby" value="30"> 30대
-						<input type="radio" name="hobby" value="40"> 40대
+						<input type="radio" name="age" value="10"> 10대
+						<input type="radio" name="age" value="20"> 20대
+						<input type="radio" name="age" value="30"> 30대
+						<input type="radio" name="age" value="40"> 40대
 					</td>
 				</tr>
 					<tr>
