@@ -8,6 +8,11 @@
 <title>Insert title here</title>
 
 <style>
+
+  body {
+   width: 100%;
+   text-align: center;
+   }
 	table {
 		width: 400px;
 		border-collapse: collapse;
@@ -32,7 +37,7 @@
 </style>
 
 </head>
-<body style="text-align: center; width: 100%;">
+<body>
 
 	<div >
 		<h2>로그인 페이지</h2>
