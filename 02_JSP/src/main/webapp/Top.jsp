@@ -13,7 +13,7 @@
 
 table {
 	width: 800px;
-/* 	border: 1px solid black; */
+	/* 	border: 1px solid black; */
 }
 
 td {
@@ -23,7 +23,6 @@ td {
 /* p {
 	text-align: center;
 } */
-
 .logo {
 	width: 200px;
 	height: 70px;
@@ -57,7 +56,7 @@ td {
 				src="img/campingLogo.png" /></td>
 
 			<td colspan="2">
-			<h2>낭만 캠핑</h2>
+				<h2>낭만 캠핑</h2>
 			</td>
 		</tr>
 		<tr class="cellTr">
