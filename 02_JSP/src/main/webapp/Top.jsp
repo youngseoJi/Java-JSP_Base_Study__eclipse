@@ -7,18 +7,12 @@
 <title>Insert title here</title>
 
 <style>
-* {
-	margin: 0;
-}
 
-table {
+.topTable {
 	width: 800px;
-	/* 	border: 1px solid black; */
+	border: 1px solid black; 
 }
 
-td {
-	text-align: center;
-}
 
 /* p {
 	text-align: center;
@@ -28,7 +22,7 @@ td {
 	height: 70px;
 }
 
-.titleTr {
+.topTable tr {
 	height: 100px;
 }
 
@@ -36,11 +30,11 @@ td {
 	width: 260px;
 }
 
-.cellTr {
+.topCellTr {
 	height: 50px;
 }
 
-.cellTr td {
+.topCellTr td {
 	width: 130px;
 }
 </style>
@@ -48,8 +42,8 @@ td {
 <body>
 
 	<!-- Top -->
-	<table>
-		<tr class="titleTr">
+	<table class="topTable">
+		<tr>
 
 			<!-- 로고 이미지 -->
 			<td class="logoTd" colspan="2"><img class="logo" alt="logo"
@@ -59,7 +53,7 @@ td {
 				<h2>낭만 캠핑</h2>
 			</td>
 		</tr>
-		<tr class="cellTr">
+		<tr class="topCellTr">
 			<td>캠핑</td>
 			<td>의자</td>
 			<td>식기</td>

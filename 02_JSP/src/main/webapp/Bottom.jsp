@@ -8,32 +8,37 @@
 
 
 <style>
-* {
-	margin: 0;
+
+
+.bottomTable {
+	width: 800px;
+	height:100px;
 }
 /* 
-table, th, td {
-	border: 1px solid black;
-	border-collapse: collapse;
-} */
-
-table {
-	width: 800px;
-}
-
-td {
-	text-align: center;
-}
-
-tr {
+.bottomTable tr {
 	height: 100px;
-}
+	overflow: hidden; 
+}  */
+
+.bottomtable tr td {
+
+	border: 1px solid black;
+		border-collapse: collapse;
+		
+		}
+
+/* 
+td{
+
+text-align:center;
+
+} */
 </style>
 </head>
 
 <body>
 
-	<table>
+	<table class="bottomTable">
 		<tr>
 			<td>
 				<p>이용약관 개인정보 처리방침 영상정보처리기기운영관리방침</p>
@@ -45,3 +50,7 @@ tr {
 
 </body>
 </html>
+
+
+
+

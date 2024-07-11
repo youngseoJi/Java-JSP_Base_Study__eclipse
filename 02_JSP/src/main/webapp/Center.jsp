@@ -8,26 +8,19 @@
 
 
 <style>
-* {
-	margin: 0;
-}
 
-table {
+.centerTable {
 	width: 600px;
 }
 
-td {
-	text-align: center;
-}
-
-tr {
+.centerTable tr {
 	height: 400px;
 }
 </style>
 
 </head>
 <body>
-	<table>
+	<table class="centerTable">
 		<tr>
 			<td><img alt="" src="img/campingMain.jpg" width="500" height="350"></td>
 		</tr>

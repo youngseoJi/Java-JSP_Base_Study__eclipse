@@ -9,56 +9,51 @@
 <style>
 * {
 	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 body {
 	display: flex;
-	jutify-content: center;
-}
-
-table, th, td {
-	border: 1px solid black;
-	border-collapse: collapse;
-}
-
-table {
-	width: 800px;
+	justify-content: center;
 }
 
 td {
 	text-align: center;
 }
 
-.topTr {
+.maintable {
+	width: 800px;
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+table{
+border: 1px solid black;
+}
+
+.mainTopTr {
 	height: 150px;
 }
 
-.leftTr {
+.mainLeftTr {
 	height: 400px;
 }
 
-.leftTr td {
+.mainLeftTd {
 	width: 200px;
 }
 
-.centerTd {
-	width: 200px;
+.mainCenterTd {
+	width: 600px;
 }
 
 /* .centerTr {
 	height: 400px;
 }
  */
-.leftTr td {
-	width: 600px;
+.mainBottomTr {
+	height: auto;
 }
-
-.bottomTr{
-	height: 100px;
-}
-
-
-
 </style>
 
 </head>
@@ -66,24 +61,20 @@ td {
 
 	<section>
 
-		<table>
+		<table class="maintable">
 			<!-- Top -->
-			<tr class="topTr">
+			<tr class="mainTopTr">
 				<td colspan="2"><jsp:include page="Top.jsp" /></td>
 			</tr>
 
 			<!-- Left -->
-			<tr class="leftTr">
-				<td class="leftTd"><jsp:include page="Left.jsp" /></td>
-			<!-- </tr> -->
-
-			<!-- Center -->
-			<!-- <tr class="centerTr"> -->
-				<td class="centerTd"><jsp:include page="Center.jsp" /></td>
+			<tr class="mainLeftTr">
+				<td class="mainLeftTd" style="width: 200px;"><jsp:include page="Left.jsp" /></td>
+				<td class="mainCenterTd"><jsp:include page="Center.jsp" /></td> 
 			</tr>
 
 			<!-- Bottom -->
-			<tr class="bottomTr">
+			<tr class="mainBottomTr">
 				<td colspan="2"><jsp:include page="Bottom.jsp" /></td>
 			</tr>
 		</table>
