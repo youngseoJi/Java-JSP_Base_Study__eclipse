@@ -64,7 +64,15 @@ border: 1px solid black;
 		<table class="maintable">
 			<!-- Top -->
 			<tr class="mainTopTr">
-				<td colspan="2"><jsp:include page="Top.jsp" /></td>
+				<td colspan="2">
+				<!-- include 액션태그 jsp 파일 불러오기, param 값전달이 가능하다. -->
+					<jsp:include page="Top.jsp">
+						<jsp:param value="aaa" name="id"/>												
+					</jsp:include>
+					
+					<!-- include 지시어는 파일 불러오기 외에 기능이 없다. -->
+					<%-- <%@ include file="Top.jsp" %> --%>
+				</td>
 			</tr>
 
 			<!-- Left -->

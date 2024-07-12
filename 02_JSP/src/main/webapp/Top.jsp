@@ -14,9 +14,9 @@
 }
 
 
-/* p {
+p {
 	text-align: center;
-} */
+}
 .logo {
 	width: 200px;
 	height: 70px;
@@ -49,7 +49,7 @@
 			<td class="logoTd" colspan="2"><img class="logo" alt="logo"
 				src="img/campingLogo.png" /></td>
 
-			<td colspan="2">
+			<td colspan="5">
 				<h2>낭만 캠핑</h2>
 			</td>
 		</tr>
@@ -60,6 +60,7 @@
 			<td>침낭</td>
 			<td>테이블</td>
 			<td>화롯대</td>
+			<td style="width : 140px"><%=request.getParameter("id") %></td>		
 		</tr>
 	</table>
 
