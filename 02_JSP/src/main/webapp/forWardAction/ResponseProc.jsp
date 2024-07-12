@@ -35,6 +35,9 @@
 
 <!--JSP 액션태그 forward -->
 <jsp:forward page="ResponseRedirect.jsp"/> <!--객체의 데이터유지 -->
+
+
+<!-- 문제 해결 전 : forward 액션태그안의 옵션들이 에러가 떠서 문법확인중 -->
 <%-- 
     <jsp:param name="id" value="023334444"/>
  
