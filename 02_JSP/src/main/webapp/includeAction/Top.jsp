@@ -46,8 +46,7 @@ p {
 		<tr>
 
 			<!-- 로고 이미지 -->
-			<td class="logoTd" colspan="2"><img class="logo" alt="logo"
-				src="img/campingLogo.png" /></td>
+			<td class="logoTd" colspan="2"><img class="logo" alt="logo" src="../img/campingLogo.jpg"/></td>
 
 			<td colspan="5">
 				<h2>낭만 캠핑</h2>

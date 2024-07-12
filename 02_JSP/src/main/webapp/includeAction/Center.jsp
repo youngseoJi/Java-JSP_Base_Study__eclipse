@@ -22,7 +22,7 @@
 <body>
 	<table class="centerTable">
 		<tr>
-			<td><img alt="" src="img/campingMain.jpg" width="500" height="350"></td>
+			<td><img alt="캠핑 메인이미지" src="../img/campingMain.jpg" width="500" height="350"></td>
 		</tr>
 	</table>
 </body>
