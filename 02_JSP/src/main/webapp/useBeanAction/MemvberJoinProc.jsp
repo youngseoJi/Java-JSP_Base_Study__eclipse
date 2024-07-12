@@ -23,6 +23,8 @@
     <h3>이메일: <jsp:getProperty name="mbean" property="email"/></h3>
     <h3>전화번호: <jsp:getProperty name="mbean" property="tel"/></h3>
     <h3>주소: <jsp:getProperty name="mbean" property="address"/></h3>
+    
+    <h2>전화 표현식으로 출력 <%=mbean.getTel() %></h2>
 </section>
 
 </body>
