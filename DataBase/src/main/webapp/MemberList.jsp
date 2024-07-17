@@ -17,7 +17,7 @@
 		MemberDAO mdao = new MemberDAO();
 		
 	/* 회원들의 정보가 얼마나 저장되어있는지 모르기에 가변길이인 vector을 이용하여 데이터를 저장한다. */
-	/* MemberBean만 Vector에 저장한다.*/
+	/* MemberBean 회원 데이터만 Vector에 저장한다.*/
 		Vector<MemberBean>  vec = mdao.allSelectMember();
 	%>
 	

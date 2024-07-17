@@ -1,5 +1,7 @@
 package model;
 
+// bean은 데이터베이스의 데이터를 주고받을때 패키징화해서 가져와야하게 때문에 생성한것
+// 한 사람에 대한 정보를 패키징
 public class MemberBean {
   
 	private String id;
