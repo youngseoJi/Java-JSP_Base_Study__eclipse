@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Vector;
 
 // 오라클 데이터 베이스에 연결하고 select, insert , update, delete 작업을 실행해주는 클래스
 public class MemberDAO {
@@ -71,6 +72,17 @@ public class MemberDAO {
 			  e.printStackTrace();
 		  }
 		  
+	}
+	
+	
+	// 모든 회원의 정보를 리턴해주는 메소드 
+	//return type : Vector<MemberBean> 
+	
+	public Vector<MemberBean> allSelectMember() {
+		
+		Vector<MemberBean> v = new Vector<>();
+		
+		return v;
 	}
 	
 }
