@@ -41,15 +41,11 @@
 
 	/* 데이터 베이스 클래스 객체생성- (DAO 안의 메소드 사용하기 위해서 생성.)*/
 	MemberDAO mdao = new MemberDAO();
-	
 	mdao.insertMember(mbean);
 	
+	/* 회원 가입 완료 -> 회원 정보를 보여주는 페이지로 이동시킴 */
+	response.sendRedirect("MemberList.jsp");
+	
 %>
-
-<%-- 	<h2>아이디 = <%=mbean.getId() %></h2>
-	<h2>취미 = <%=mbean.getHobby() %></h2>
- --%>
-<h3>오라클에 완료</h3>
-
 </body>
 </html>
