@@ -118,7 +118,7 @@ td {
 				<tr>
 					<td class="labelTd">하고싶은말</td>
 					<td class="inputTd">
-						<textarea rows="5" cols="40" name="info"> </textarea>
+						<textarea name="info" rows="5" cols="40" name="info"> </textarea>
 					</td>
 				</tr>
 				
