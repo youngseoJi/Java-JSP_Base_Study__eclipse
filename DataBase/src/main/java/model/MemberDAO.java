@@ -111,8 +111,7 @@ public class MemberDAO {
 			rs = pstmt.executeQuery();
 			
 			// 반복문을 이용하여 rs_에 저장된 데이터를 추출하기
-			
-			// 조건 : 저장된 데이터 만큼 반복문을 돌리겠다.     
+			  // 조건 : 저장된 데이터 만큼 반복문을 돌리겠다.     
 			while(rs.next()) {
 				
 				// 모든 회원 정보를 메모리에 저장하는 역할 - 컬럼으로 나뉜 데이터를 빈 클래스에 저장한다.
@@ -149,5 +148,54 @@ public class MemberDAO {
 		return v;
 		
 	}
+
+
+//	 한명의 사람에 대한 정보를 리턴하는 메소드 
+
+	public MemberBean oneSelectMember(String id) {
+		
+		// 한 명에 대한 정보만 리턴하기에 빈클래스 객체 생성 -> 두이상이면 Vector 객체를사용해야한다.
+		MemberBean bean = new MemberBean();
+		
+	try {
+		// 커넥션 연결
+		getCon();
+		System.out.println("Database connected for oneSelectMember");
+
+		// 쿼리준비
+		String sql="select * from member where id=?";
+		pstmt = con.prepareStatement(sql);
+
+		//? 에 값을 맵핑 - 1번째 ? 에 id를 넣어주겠다.
+		pstmt.setString(1,id);
+        System.out.println("Query prepared with ID: " + id);
+		
+		// 쿼리 실행
+		rs= pstmt.executeQuery(); // result set에 저장된다.
+		
+		if(rs.next()) { // 레코드가 있다면
+			// 데이터 레코드 멤버빈 타입으로 저장 / 컬럼에 맞춰 넣기
+			bean.setId(rs.getString(1));
+			bean.setPassword(rs.getString(2));
+			bean.setEmail(rs.getString(3));
+			bean.setTel(rs.getString(4));
+			bean.setHobby(rs.getString(5));
+			bean.setAge(rs.getString(6));
+			bean.setJob(rs.getString(7));
+			bean.setInfo(rs.getString(8));
+		     System.out.println("Data found for ID: " + id);
+		}
+		
+		// 자원 반납
+		con.close();
+	}catch (Exception e){
+		 System.out.println("Exception in oneSelectMember: " + e.getMessage());
+		e.printStackTrace();
+	}
+	
+	// 리턴
+	return bean; // memberBean 타입으로 저장
+	}
+	
 	
 }
