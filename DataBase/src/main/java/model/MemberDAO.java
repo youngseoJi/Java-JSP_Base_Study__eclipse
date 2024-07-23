@@ -261,6 +261,36 @@ public class MemberDAO {
 			
 		}
 	}
+	
+	// 특정 회원 탈퇴 메소드 
+	public void deleteMember(String id) {
+		
+		getCon();
+		
+		try {
+			// 쿼리준비
+			String sql = "delete from member where id=?";
+			// 쿼리실행
+
+			// 쿼리실행 객체 선언
+			pstmt = con.prepareStatement(sql);
+			
+			//?에 값을 반환
+			pstmt.setString(1, id); 
+			
+			
+			//  쿼리실행
+			pstmt.executeUpdate();
+
+			// 자원 반납
+			con.close();
+			
+			
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+		
+	}
 }
 
 

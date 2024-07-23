@@ -1,31 +1,19 @@
 <%@page import="model.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원정보</title>
+<title>회원 탈퇴</title>
 </head>
 <body>
-
-	<!-- useBean을 사용하여 수정된 회원정보를 받아온다. -->
-
-	<%
-	/* request.setCharacterEncoding("UTF-8"); */
-	%>
-
-	<!-- 
-		id: 페이지 내에서 사용할 빈(Bean)의 이름을 지정합니다.
-		class: 빈의 클래스명을 전체 패키지 경로와 함께 명시합니다.
- -->
-
+	
 	<jsp:useBean id="mbean" class="model.MemberBean">
 		<jsp:setProperty name="mbean" property="*" />
 	</jsp:useBean>
 
 	<%
-
 	MemberDAO mdao = new MemberDAO();
 
 	// 스트링 타입으로 저장되어있는 패스워드를 가져옴 (데이터 베이스에서 가져온 password 값 저장 )
@@ -33,13 +21,13 @@
 
 
 	
-	// 수정하기 위해 작성한 패스워드 값과 기존 데이터 베이스에서 갖고 온 패스워드 값을 비교한다.
+	// 삭제하기 위해 작성한 패스워드 값과 기존 데이터 베이스에서 갖고 온 패스워드 값을 비교한다.
 
-	// 수정하기 위해 입력한 패스워드가 기존 데이터 베이스 저장된 password랑 같다면 ? member 테이블을 수정한다.
+	// 삭제하기 위해 입력한 패스워드가 기존 데이터 베이스 저장된 password랑 같다면 ?
 	if (mbean.getPassword().equals(password)) {
 		
-		//  member 테이블을 수정한다. -> memberDao 클래스의 회원수정 메소드 호출 
-		mdao.updateMember(mbean); // mbean안에 수정할 내용이 담겨있다.
+		//  member 테이블을 해당 id를 가진 회원을 삭제한다.
+		mdao.deleteMember(mbean.getId()) ;
 		
 		response.sendRedirect("MemberList.jsp");
 		
@@ -56,6 +44,7 @@
 	<%
 	}
 	%>
+	
 
 </body>
 </html>

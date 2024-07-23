@@ -1,0 +1,93 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page import="model.MemberDAO"%>
+<%@ page import="model.MemberBean"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+  body {
+  margin : 0px;
+  padding: 0px;
+ 	box-sizing: content-box;
+  display: flex;
+  justify-content: center;
+  }
+  
+  section{
+    text-align: center;
+    }
+
+	table {
+		border-collapse: collapse;
+	}
+	
+	td {
+		text-align: center;
+	}
+	tr {
+	height : 50px;
+	}
+	
+	td {
+		border: 1px solid black;
+	}
+</style>
+</head>
+<body>
+
+
+<%-- 
+	<%
+	/* 1. memberInfo 유저 상세정보 보기창 에서 넘어온 id 받기*/
+	String id = request.getParameter("id");
+	// 데이터베이스 객체 생성
+	MemberDAO mdao = new MemberDAO();
+	// 2. 데이터 베이스에서 회원 한 명의 정보를 갖고온다.
+	MemberBean mbean = mdao.oneSelectMember(id); // 해당하는 id의 회원정보를 리턴
+	%>
+
+	 --%><section>
+		<h2>회원 삭제하기 </h2>
+
+
+		<table style="width: 400px">
+
+	<!-- form 데이터 보내기 
+	
+			 form으로 수정하는 값이 아닌 id 를 넘겨주기위해서는 input hidden타입 이용하여 넘겨줄 수 있다. -->
+				
+			<form action="MemberDeleteProc.jsp" method="post">
+			<tr>
+				<td style="width: 150px">아이디</td>
+				<td style="width: 250px"><%=request.getParameter("id")%></td>
+			</tr>
+			<tr>
+				<td style="width: 150px">비밀번호</td>
+				<td style="width: 250px"><input type="password" name="password"
+					value="">
+			</tr>
+
+			<!-- 버튼
+					1. 수정버튼 
+					2. 회원 전체보기 
+			 -->
+			<tr>
+				<td colspan="2"><input type="submit" value="회원 삭제하기">
+				<!-- id값을 안보이게 넘긴다. -->
+					<input type="hidden" name="id" value="<%=request.getParameter("id")%>" >
+					</form>
+					
+					<button onClick="location.href='MemberList.jsp'">회원 전체 보기</button>
+				</td>
+			</tr>
+
+
+		</table>
+
+	</section>
+</body>
+</html>
