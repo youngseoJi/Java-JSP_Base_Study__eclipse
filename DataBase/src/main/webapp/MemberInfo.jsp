@@ -29,8 +29,11 @@
 	td {
 		text-align: center;
 	}
+	tr {
+	height : 50px;
+	}
 	
-	td, th {
+	td {
 		border: 1px solid black;
 	}
 </style>
@@ -55,34 +58,49 @@
 		<h2>회원 정보 보기</h2>
 
 		<table style="width: 400px;">
-			<tr style="height: 50px;">
+			<tr>
 				<td style="width: 150px;">아이디</td>
 				<td style="width: 250px"><%=mbean.getId()%></td>
 			</tr>
-			<tr style="height: 50px">
-				<td style="align-content: center; width: 150px">이메일</td>
+			<tr>
+				<td style="width: 150px">이메일</td>
 				<td style="width: 250px"><%=mbean.getEmail()%></td>
 			</tr>
-			<tr style="height: 50px">
-				<td style="align-content: center; width: 150px">전화</td>
+			<tr>
+				<td style="width: 150px">전화</td>
 				<td style="width: 250px"><%=mbean.getTel()%></td>
 			</tr>
-			<tr style="height: 50px">
-				<td style="align-content: center; width: 150px">취미</td>
+			<tr>
+				<td style="width: 150px">취미</td>
 				<td style="width: 250px"><%=mbean.getHobby()%></td>
 			</tr>
-			<tr style="height: 50px">
-				<td style="align-content: center; width: 150px">직업</td>
+			<tr>
+				<td style="width: 150px">직업</td>
 				<td style="width: 250px"><%=mbean.getJob()%></td>
 			</tr>
-			<tr style="height: 50px">
-				<td style="align-content: center; width: 150px">나이</td>
+			<tr>
+				<td style="width: 150px">나이</td>
 				<td style="width: 250px"><%=mbean.getAge()%></td>
 			</tr>
-			<tr style="height: 50px">
-				<td style="align-content: center; width: 150px">정보</td>
+			<tr>
+				<td style="width: 150px">정보</td>
 				<td style="width: 250px"><%=mbean.getInfo()%></td>
 			</tr>
+			
+			<!-- 버튼 
+			* 수정  
+			- 수정 폼 화면 구현 : 실제 보여주는 칸 아이디, 이메일, 전화, 패스워드
+			- 조건1 : 패스워드 입력이 동일해야지 수정가능
+			- 조건2 : 이메일과 전화번호만 수정가능  
+			*  -->
+			<tr>
+				<td colspan="2"> 
+				<!-- 수정 버튼 : 버튼 수정을 누르면  - 수정 폼 화면 불러오기 
+						 수정할 작성자의 아이디 값을 넘겨준다. -->
+				<button onclick="location.href='MemberUpdateForm.jsp?id=<%=mbean.getId()%>'"> 수정 </button> 
+				</td>
+			</tr>
+			
 		</table>
 
 	</section>
