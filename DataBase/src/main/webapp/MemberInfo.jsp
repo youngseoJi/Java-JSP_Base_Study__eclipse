@@ -95,9 +95,16 @@
 			*  -->
 			<tr>
 				<td colspan="2"> 
-				<!-- 수정 버튼 : 버튼 수정을 누르면  - 수정 폼 화면 불러오기 
-						 수정할 작성자의 아이디 값을 넘겨준다. -->
-				<button onclick="location.href='MemberUpdateForm.jsp?id=<%=mbean.getId()%>'"> 수정 </button> 
+				<!-- 1. 수정 버튼 : 버튼 수정을 누르면  - 수정 폼 화면 불러오기 
+						 수정할 작성자의 아이디 값을 넘겨준다. 
+						 2. 회원 탈퇴버튼
+						 3. 회원 전체 목록조회 버튼 
+						 4. 회원 가입
+						 -->
+				<button onclick="location.href='MemberUpdateForm.jsp?id=<%=mbean.getId()%>'"> 수정 </button>
+				<button onclick="location.href='MemberDeleteForm.jsp?id=<%=mbean.getId()%>'"> 회원탈퇴 </button>
+				<button onclick="location.href='MemberList.jsp'"> 회원목록 조회 </button>
+				<button onclick="location.href='MembeJoinForm.jsp?id=<%=mbean.getId()%>'"> 회원가입 </button> 
 				</td>
 			</tr>
 			
