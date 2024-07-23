@@ -62,7 +62,10 @@
 
 		<table style="width: 400px">
 
-	<!-- form 데이터 보내기 -->
+	<!-- form 데이터 보내기 
+	
+			 form으로 수정하는 값이 아닌 id 를 넘겨주기위해서는 input hidden타입 이용하여 넘겨줄 수 있다. -->
+				
 			<form action="MemberUpdateProc.jsp" method="post">
 			<tr>
 				<td style="width: 150px">아이디</td>
@@ -81,7 +84,7 @@
 			<tr>
 				<td style="width: 150px">비밀번호</td>
 				<td style="width: 250px"><input type="password" name="password"
-					value="<%=mbean.getPassword()%>">
+					value="">
 			</tr>
 
 			<!-- 버튼
@@ -90,6 +93,8 @@
 			 -->
 			<tr>
 				<td colspan="2"><input type="submit" value="회원 수정하기">
+				<!-- id값을 안보이게 넘긴다. -->
+					<input type="hidden" name="id" value="<%=mbean.getId()%>" >
 					</form>
 					
 					<button onClick="location.href='MemberList.jsp'">회원 전체 보기</button>
