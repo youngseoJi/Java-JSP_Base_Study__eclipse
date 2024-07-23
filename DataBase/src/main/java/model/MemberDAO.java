@@ -160,7 +160,6 @@ public class MemberDAO {
 	try {
 		// 커넥션 연결
 		getCon();
-		System.out.println("Database connected for oneSelectMember");
 
 		// 쿼리준비
 		String sql="select * from member where id=?";
@@ -168,7 +167,6 @@ public class MemberDAO {
 
 		//? 에 값을 맵핑 - 1번째 ? 에 id를 넣어주겠다.
 		pstmt.setString(1,id);
-        System.out.println("Query prepared with ID: " + id);
 		
 		// 쿼리 실행
 		rs= pstmt.executeQuery(); // result set에 저장된다.
@@ -183,7 +181,6 @@ public class MemberDAO {
 			bean.setAge(rs.getString(6));
 			bean.setJob(rs.getString(7));
 			bean.setInfo(rs.getString(8));
-		     System.out.println("Data found for ID: " + id);
 		}
 		
 		// 자원 반납
@@ -197,5 +194,73 @@ public class MemberDAO {
 	return bean; // memberBean 타입으로 저장
 	}
 	
+	// 회원 한명의 패스워드 값을 리턴하는 메소드 
+	public String getPass(String id) {
 	
+		// 스트링으로 리턴을 해야하기에 스트링 변수 선언
+		String password="";
+		
+		try {
+			// 커넥션 연결
+			getCon();
+
+			// 쿼리준비
+			String sql="select password from member where id=?";
+			pstmt = con.prepareStatement(sql);
+			
+
+			//? 에 값을 맵핑 - 1번 물을표에 id를 넣기
+			pstmt.setString(1,id);
+		
+			// 쿼리 실행
+			rs= pstmt.executeQuery(); // result set에 저장
+			
+			if(rs.next()) {
+				password = rs.getString(1); // 패스워드 값이 저장된 컬럼 인덱스  
+			}
+			
+			// 자원 반납
+			con.close();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		// 결과 
+		return password;
+	}
+	
+
+	// 특정 회원의 정보를 수정하는 메소 
+	public void updateMember(MemberBean bean) {
+		
+		getCon(); // 커넥션 연
+		
+
+		try {
+			// 쿼리준비 :특정id 값을 가진 회원의 이메일과 전화번호를 수정한다. 
+			String sql = "update member set email=?,tel=? where id=?"; 
+			
+			// 쿼리실행 객체 선언
+			pstmt = con.prepareStatement(sql);
+			
+			//?에 값을 반환
+			pstmt.setString(1, bean.getEmail()); // 1번 ? email
+			pstmt.setString(2, bean.getTel());
+			pstmt.setString(3, bean.getId());
+			
+			
+			//  쿼리실행
+			pstmt.executeUpdate();
+
+			// 자원 반납
+			con.close();
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+			
+		}
+	}
 }
+
+
