@@ -7,6 +7,33 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<style>
+  body {
+  margin : 0px;
+  padding: 0px;
+ 	box-sizing: content-box;
+  display: flex;
+  justify-content: center;
+  }
+  
+  section{
+    text-align: center;
+    }
+
+	table {
+		/*   width: 400px; */
+		border-collapse: collapse;
+	}
+	
+	td {
+		text-align: center;
+	}
+	
+	td, th {
+		border: 1px solid black;
+	}
+</style>
 </head>
 <body>
 
@@ -27,48 +54,34 @@
 	<section>
 		<h2>회원 정보 보기</h2>
 
-		<table style="width: 400px; border: 1;">
-			<tr style="height: 50px">
-				<td style="align-content: center; width: 150px">아이디</td>
-				<td style="width: 250px">
-			  	<%= mbean.getId() %>
-				</td>
+		<table style="width: 400px;">
+			<tr style="height: 50px;">
+				<td style="width: 150px;">아이디</td>
+				<td style="width: 250px"><%=mbean.getId()%></td>
 			</tr>
 			<tr style="height: 50px">
 				<td style="align-content: center; width: 150px">이메일</td>
-				<td style="width: 250px">
-					<%= mbean.getEmail() %>
-				</td>
+				<td style="width: 250px"><%=mbean.getEmail()%></td>
 			</tr>
 			<tr style="height: 50px">
 				<td style="align-content: center; width: 150px">전화</td>
-				<td style="width: 250px">
-					<%= mbean.getTel() %>
-				</td>
+				<td style="width: 250px"><%=mbean.getTel()%></td>
 			</tr>
 			<tr style="height: 50px">
 				<td style="align-content: center; width: 150px">취미</td>
-				<td style="width: 250px">
-					<%= mbean.getHobby() %>
-				</td>
+				<td style="width: 250px"><%=mbean.getHobby()%></td>
 			</tr>
 			<tr style="height: 50px">
 				<td style="align-content: center; width: 150px">직업</td>
-				<td style="width: 250px">
-					<%= mbean.getJob() %>
-				</td>
+				<td style="width: 250px"><%=mbean.getJob()%></td>
 			</tr>
 			<tr style="height: 50px">
 				<td style="align-content: center; width: 150px">나이</td>
-				<td style="width: 250px">
-					<%= mbean.getAge() %>
-				</td>
+				<td style="width: 250px"><%=mbean.getAge()%></td>
 			</tr>
 			<tr style="height: 50px">
 				<td style="align-content: center; width: 150px">정보</td>
-				<td style="width: 250px">
-					<%= mbean.getInfo() %>
-				</td>
+				<td style="width: 250px"><%=mbean.getInfo()%></td>
 			</tr>
 		</table>
 
