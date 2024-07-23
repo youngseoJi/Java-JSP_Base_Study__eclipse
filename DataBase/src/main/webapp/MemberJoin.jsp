@@ -41,6 +41,9 @@ td {
 	
 }
 
+
+
+
 .inputTd textarea {
 	width: 95%; 
 	height: 100px; 
