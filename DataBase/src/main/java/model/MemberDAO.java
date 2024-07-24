@@ -6,13 +6,17 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Vector;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
 // 오라클 데이터 베이스에 연결하고 select, insert , update, delete 작업을 실행해주는 클래스
 public class MemberDAO {
 
 	/* 오라클 접속하는 소스 */
-	String id = "system"; // 접속 아이디
-	String pass = "pass"; // 비
-	String url = "jdbc:oracle:thin:@localhost:1521/xe"; // 접속 url
+//	String id = "system"; // 접속 아이디
+//	String pass = "pass"; // 비
+//	String url = "jdbc:oracle:thin:@localhost:1521/xe"; // 접속 ur_l
 
 	// 데이터베이스에 접근할 수 있도록 설정
 	Connection con = null;
@@ -24,33 +28,45 @@ public class MemberDAO {
 	ResultSet rs = null;
 
 	// 데이터 베이스에 접근할 수 있도록 도와주는 메소드
-//	public Void getCon() {
-//
-//		try {
-//			/* 1. 해당 데이터 베이스르 사용한다고 선언 (클래스를 등록 = 오라클용을 사용) */
-//			Class.forName("oracle.jdbc.driver.OracleDriver");
-//
-//			/* 2. 해당 데이터 베이스에 접속 */
-//			con = DriverManager.getConnection(url, id, pass);
-//
-//		} catch (Exception e) {
-//
-//		}
-//		return null;
-//
-//	}
 	
 	public Connection getCon() {
-	    try {
-	        Class.forName("oracle.jdbc.driver.OracleDriver");
-	        con = DriverManager.getConnection(url, id, pass);
-	        System.out.println("Database connection successful");
-	        return con;
-	    } catch (Exception e) {
-	        System.out.println("Database connection failed: " + e.getMessage());
-	        e.printStackTrace();
+		
+	//	커넥션 풀을 이용하여 데이터 베이스에 접근하는방법
+		
+	try {
+		//	외부에서 데이터를 읽어드린다.
+		Context initctx = new InitialContext();
+		
+		// 톰캣서버에 정보를 담아놓은 곳으로 이동
+		Context envctx = (Context) initctx.lookup("java:comp/env"); //env 환경설정 자바를 실행하는 환경설정 부분에 넣는다.
+		
+		// 데이터 소스 객체 선언
+		DataSource ds = (DataSource) envctx.lookup("jdbc/pool"); // 리소스 네임으로 갖고오
+		
+		// 데이터 소스를 기준으로 커넥션을 연결하기
+		con = ds.getConnection();
+		return con;		
+		
+	} catch (Exception e) {
+		 e.printStackTrace();
 	        return null;
-	    }
+	}
+
+		
+		
+		
+//	    try {
+//	    	/* 1. 해당 데이터 베이스르 사용한다고 선언 (클래스를 등록 = 오라클용을 사용) */
+//	        Class.forName("oracle.jdbc.driver.OracleDriver");
+//	        /* 2. 해당 데이터 베이스에 접속 */
+//	        con = DriverManager.getConnection(url, id, pass);
+////	        System.out.println("Database connection successful");
+//	        return con;
+//	    } catch (Exception e) {
+//	        System.out.println("Database connection failed: " + e.getMessage());
+//	        e.printStackTrace();
+//	        return null;
+//	    }
 	}
 
 	
