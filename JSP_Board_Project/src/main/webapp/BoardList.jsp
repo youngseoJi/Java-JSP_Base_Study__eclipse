@@ -95,6 +95,11 @@ td {
 			<%
 			}
 			%>
+			
+			<tr>
+			<td colspan="5">
+			<button onclick="location.href='BoardWriteForm.jsp'">작성하기</button></td>
+			</tr>
 		</table>
 	</section>
 </body>
