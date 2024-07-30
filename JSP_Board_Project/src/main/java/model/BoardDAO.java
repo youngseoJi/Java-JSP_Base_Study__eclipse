@@ -11,11 +11,11 @@ import javax.sql.DataSource;
 public class BoardDAO {
 
 	// 데이터베이스에 접근할 수 있도록 설정
-	Connection con;
+	Connection con = null;
 	// 데이터 베이스에서 쿼리를 실행시켜주는 객체
-	PreparedStatement pstmt;
+	PreparedStatement pstmt = null;
 	// 데이터베이스의 테이블의 결과를 리턴받아 자바에 저장해주는 객체
-	ResultSet rs;
+	ResultSet rs = null;
 
 	// 데이터 베이스의 커넷션풀을 사용하도록 설정하는 메소드
 
