@@ -56,9 +56,9 @@ td {
 	BoardDAO boardDAO = new BoardDAO();
 
 	// 모든 게시글 정보를 가져오는 메소드 호출
-	
+
 	// 게시글의 수가 미리 정해져 있지 않기 때문에 가변 길이 배열인 Vector 사용
-  // BoardBean 객체들을 Vector에 담아 반환
+	// BoardBean 객체들을 Vector에 담아 반환
 	Vector<BoardBean> boardList = boardDAO.getAllBoard();
 	%>
 
@@ -75,18 +75,15 @@ td {
 			</tr>
 
 			<%
-			
 			// Vector에 저장된 BoardBean 객체들을 순차적으로 꺼내서 출력
 			for (int i = 0; i < boardList.size(); i++) {
 				BoardBean board = boardList.get(i);// 현재 게시글의 정보가 담긴 BoardBean 객체 추출
-				
 			%>
 
 			<tr>
 				<td style="width: 80px;"><%=i + 1%></td>
-				<td style="width: 200px;">
-					<a href="BoardInfo.jsp?num=<%=board.getNum()%>"></a> 
-					<%=board.getTitle()%></td>
+				<td style="width: 200px; text-align: left;"><a
+					href="BoardInfo.jsp?num=<%=board.getNum()%>"> <%=board.getTitle()%></a></td>
 				<td><%=board.getWriter()%></td>
 				<td style="width: 150px;"><%=board.getReg_date()%></td>
 				<td><%=board.getRead_count()%></td>
@@ -95,10 +92,11 @@ td {
 			<%
 			}
 			%>
-			
+
 			<tr>
-			<td colspan="5">
-			<button onclick="location.href='BoardWriteForm.jsp'">작성하기</button></td>
+				<td colspan="5">
+					<button onclick="location.href='BoardWriteForm.jsp'">작성하기</button>
+				</td>
 			</tr>
 		</table>
 	</section>
