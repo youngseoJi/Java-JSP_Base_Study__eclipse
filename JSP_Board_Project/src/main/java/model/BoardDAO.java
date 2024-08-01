@@ -115,17 +115,17 @@ public class BoardDAO {
 			while (rs.next()) {
 				// 데이터 패키징 (BoardBean 클래스 이용)
 				BoardBean boardBean = new BoardBean();
-				boardBean.setNum(rs.getInt(1));
-				boardBean.setWriter(rs.getString(2));
-				boardBean.setEmail(rs.getString(3));
-				boardBean.setTitle(rs.getString(4));
-				boardBean.setPassword(rs.getString(5));
-				boardBean.setReg_date(rs.getDate(6).toString());
-				boardBean.setRef(rs.getInt(7));
-				boardBean.setRe_step(rs.getInt(8));
-				boardBean.setRe_level(rs.getInt(9));
-				boardBean.setRead_count(rs.getInt(10));
-				boardBean.setContent(rs.getString(11));
+				boardBean.setNum(rs.getInt("num"));
+				boardBean.setWriter(rs.getString("writer"));
+				boardBean.setEmail(rs.getString("email"));
+				boardBean.setTitle(rs.getString("title"));
+				boardBean.setPassword(rs.getString("password"));
+				boardBean.setReg_date(rs.getDate("reg_date").toString());
+				boardBean.setRef(rs.getInt("ref"));
+				boardBean.setRe_step(rs.getInt("re_step"));
+				boardBean.setRe_level(rs.getInt("re_level"));
+				boardBean.setRead_count(rs.getInt("read_count"));
+				boardBean.setContent(rs.getString("content"));
 
 				// 패키징한 데이터 백터에 저장
 				boardList.add(boardBean);
@@ -163,17 +163,18 @@ public class BoardDAO {
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
-				board.setNum(rs.getInt(1));
-				board.setWriter(rs.getString(2));
-				board.setEmail(rs.getString(3));
-				board.setTitle(rs.getString(4));
-				board.setPassword(rs.getString(5));
-				board.setReg_date(rs.getDate(6).toString());
-				board.setRef(rs.getInt(7));
-				board.setRe_step(rs.getInt(8));
-				board.setRe_level(rs.getInt(9));
-				board.setRead_count(rs.getInt(10));
-				board.setContent(rs.getString(11));
+				board.setNum(rs.getInt("num"));
+				board.setWriter(rs.getString("writer"));
+				board.setEmail(rs.getString("email"));
+				board.setTitle(rs.getString("title"));
+				board.setPassword(rs.getString("password"));
+				board.setReg_date(rs.getDate("reg_date").toString());
+				board.setRef(rs.getInt("ref"));
+				board.setRe_step(rs.getInt("re_step"));
+				board.setRe_level(rs.getInt("re_level"));
+				board.setRead_count(rs.getInt("read_count"));
+				board.setContent(rs.getString("content"));
+				 System.out.println("Ref: " + board.getRef() + ", Re_step: " + board.getRe_step() + ", Re_level: " + board.getRe_level());
 			}
 			conn.close();
 
@@ -198,12 +199,13 @@ public class BoardDAO {
 			// 부모 글 보다 큰 re_level의 값을 전부 1씩 증가
 			// 조건 동일한 그룹내의 글 이며,현재 level이 현재 _level보다 높은 글만
 
-			// 이유 : 새로운 답글이 추가될 때 기존의 답글들이 올바른 계층 구조를 유지하도록
+			//기존 답글의 re_level을 증가시키기 위해 쿼리 실행
 			String levelsql = "upatate board set re_level = re_level+1 where ref=? and re_level > ?";
 
 			pstmt = conn.prepareStatement(levelsql);
-
-			// 답글 입력 데이터를 저장
+			
+			
+			// 새 답글 추가
 //			String sql = "insert into board values (board_seq.NEXTVAL, ?, ?, ?, ?, sysdate, ?, ?, ?, 0, ?)";
 			String sql = "insert into board (num, writer, email, title, password, reg_date, ref, re_step, re_level, read_count, content) "
 					+ "values (board_seq.NEXTVAL, ?, ?, ?, ?, sysdate, ?, ?, ?, 0, ?)";

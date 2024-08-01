@@ -83,7 +83,20 @@ td {
 			<tr>
 				<td style="width: 80px;"><%=i + 1%></td>
 				<td style="width: 200px; text-align: left;"><a
-					href="BoardInfo.jsp?num=<%=board.getNum()%>"> <%=board.getTitle()%></a></td>
+					href="BoardInfo.jsp?num=<%=board.getNum()%>"> 
+					<%
+				    // re_step이 1보다 크면 (답글이면)
+					 	if (board.getRe_step() > 1) {
+					 	// 답글의 깊이 -> ㄴ 문자표시
+					 	// step의 숫자가 클수록 답글에 답글이 많이 달린거라 -1 하며 들여쓰기 ㄴ이 많아진다. 
+					 	for (int j = 0; j < (board.getRe_step() - 1); j++) {
+					 %>
+						<span> ㄴ </span>
+					 <%
+						 }
+						 }
+					 %> 
+ <%=board.getTitle()%></a></td>
 				<td><%=board.getWriter()%></td>
 				<td style="width: 150px;"><%=board.getReg_date()%></td>
 				<td><%=board.getRead_count()%></td>

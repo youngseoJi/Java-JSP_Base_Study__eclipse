@@ -74,10 +74,11 @@ button {
 
 		<%
 		// 게시글 상세정보 답글 버튼 클릭 -> 파라미터로 넘어오는 데이터 갖고오기 
-		int num = Integer.parseInt(request.getParameter("num"));
-		int ref = Integer.parseInt(request.getParameter("num"));
-		int re_step = Integer.parseInt(request.getParameter("num"));
-		int re_level = Integer.parseInt(request.getParameter("num"));
+		 		int num = Integer.parseInt(request.getParameter("num"));
+				int ref = Integer.parseInt(request.getParameter("ref"));
+				int re_step = Integer.parseInt(request.getParameter("re_step"));
+				int re_level = Integer.parseInt(request.getParameter("re_level"));
+				
 		%>
 
 		<!-- form에 입력한 데이터가 post방식으로 보호한다.
@@ -114,9 +115,9 @@ button {
 				 -->
 				<tr>
 					<td colspan="2">
-						<input type="hidden" name="ref" value="<%=ref%>">
-						<input type="hidden" name="re_step" value="<%=re_step%>">
-						<input type="hidden" name="re_level" value="<%=re_level%>">
+     				<input type="hidden" name="ref" value="<%=ref%>">
+            <input type="hidden" name="re_step" value="<%=re_step%>">
+            <input type="hidden" name="re_level" value="<%=re_level%>">
 						<button type="submit">완료</button>
 						<button type="reset">취소</button>
 						<button onclick="location.href='BoardList.jsp'">목록</button>
