@@ -71,16 +71,22 @@ button {
 
 	<%
 	// request로부터 전달된 파라미터 num(string타입)을 정수형으로 변환하여 가져온다. 
-	int num = Integer.parseInt(request.getParameter("num").trim());
-	/* String num = request.getParameter("num"); */
+		int num = Integer.parseInt(request.getParameter("num").trim());
+		/* String num = request.getParameter("num"); */
 
-	// 데이터베이스 접근을 위한 BoardDAO 객체 생성
-	BoardDAO boardDAO = new BoardDAO();
+		// 데이터베이스 접근을 위한 BoardDAO 객체 생성
+		BoardDAO boardDAO = new BoardDAO();
 
-	/* 게시글 갖고오기 
-	num에 해당하는 특정 게시글의 정보를 데이터베이스에서 조회하고,
-	이를 게시글 BoardBean 객체 타입으로 가져온다.*/
-	BoardBean board = boardDAO.getOneBoard(num);
+		/* 게시글 갖고오기 
+		num에 해당하는 특정 게시글의 정보를 데이터베이스에서 조회하고,
+		이를 게시글 BoardBean 객체 타입으로 가져온다.*/
+		BoardBean board = boardDAO.getOneBoard(num);
+		
+		System.out.println("Board Info:");
+		System.out.println("Num: " + board.getNum());
+		System.out.println("Ref: " + board.getRef());
+		System.out.println("Re_step: " + board.getRe_step());
+		System.out.println("Re_level: " + board.getRe_level());
 	%>
 
 	<section>
@@ -138,7 +144,9 @@ button {
 			 
 				<td class="control-btns" colspan="4">
 					<button
-						onclick="location.href='BoardReWriteForm.jsp?num=<%=board.getNum()%>&ref=<%=board.getRef()%>%&re_step=<%=board.getRe_step()%>%&re_level=<%=board.getRe_level()%>'">답글</button>
+						onclick="location.href='BoardReWriteForm.jsp?num=<%=board.getNum()%>&ref=<%=board.getRef()%>&re_step=<%=board.getRe_step()%>&re_level=<%=board.getRe_level()%>'">답글</button>
+						
+						
 					<button onclick="location.href='BoardUpdateForm.jsp?num=<%=board.getNum()%>'">수정</button>
 					<button onclick="location.href='BoardDeleteForm.jsp?num=<%=board.getNum()%>'">삭제</button>
 					<button onclick="location.href='BoardList.jsp'">목록</button>
