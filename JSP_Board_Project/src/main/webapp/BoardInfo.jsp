@@ -16,7 +16,7 @@
 }
 
 body {
-	width: 100%;
+	width: 600px;
 	text-align: center;
 	display: flex;
 	justify-content: center;
@@ -60,8 +60,10 @@ td {
 }
 
 button {
-	padding: 4px 8px;
+	padding: 2px 10px;
+	margin-left: 10px;
 }
+
 </style>
 
 </head>
@@ -120,11 +122,20 @@ button {
 			</tr>
 			<!-- 버튼 
 					1. 답글쓰기
+					- 파라미터값
+					- num pk값 게시글 번호= 읽고있는 글이 무엇인지 알 수있는 번호 ,
+					- ref 글그룹:부모그룹과 동일한 글그룹이어야함, 부모글에 달린 답글이니
+					- re_step, re_level : 답글 달면 +1 씩 증가해줘야한다. 답글의 답글 연달아서 달 수 있음
 					2. 수정하기
 					3. 삭제하기
 					4. 전체목록
+					
+					
+				
 			-->
 			 <tr>
+			 
+			 
 				<td class="control-btns" colspan="4">
 					<button
 						onclick="location.href='BoardReWriteForm.jsp?num=<%=board.getNum()%>&ref=<%=board.getRef()%>%&re_step=<%=board.getRe_step()%>%&re_level=<%=board.getRe_level()%>'">답글</button>
