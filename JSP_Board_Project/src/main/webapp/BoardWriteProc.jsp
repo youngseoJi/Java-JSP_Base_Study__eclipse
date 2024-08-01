@@ -10,10 +10,10 @@
 </head>
 <body>
 
-	<%-- <% 
-	request.setCharacterEncoding("UTF-8;");//한글처리
-	
-%> --%>
+
+	<%
+	request.setCharacterEncoding("UTF-8");//한글처리
+	%>
 
 	<!-- useBean 사용하여 게시글 작성한 데이터를 한번에 갖고와 읽어드리기 
 		 id: 해당 빈클래스를 지칭하는 레퍼런스 변수명 역할 
@@ -33,6 +33,8 @@
 
 	// 데이터 저장 메소드를 호출
 	boardDAO.insertBoard(boardbean);
+	
+	response.sendRedirect("BoardList.jsp");
 	%>
 </body>
 </html>

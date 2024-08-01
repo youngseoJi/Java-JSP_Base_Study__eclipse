@@ -10,8 +10,12 @@
 <body>
 
 
+	<%
+	request.setCharacterEncoding("UTF-8");//한글처리
+	%>
+	
+	
 	<!-- bean 클래스 사용 - 답글 한번에 받아오기 -->
-
 	<jsp:useBean id="boardbean" class="model.BoardBean">
 		<jsp:setProperty name="boardbean" property="*" />
 	</jsp:useBean>
