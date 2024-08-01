@@ -42,7 +42,7 @@ public class BoardDAO {
 
 	// 새로운 게시글 생성하기 (저장하기)
 	// 입력폼에 입력한 게시글 데이터 저장하기
-	public void insertBoard(BoardBean boardBean) {
+	public void insertBoard(BoardBean boarbean) {
 
 		getConnection();
 
@@ -75,14 +75,14 @@ public class BoardDAO {
 
 			pstmt = conn.prepareStatement(sql);
 
-			pstmt.setString(1, boardBean.getWriter());
-			pstmt.setString(2, boardBean.getEmail());
-			pstmt.setString(3, boardBean.getTitle());
-			pstmt.setString(4, boardBean.getPassword());
+			pstmt.setString(1, boarbean.getWriter());
+			pstmt.setString(2, boarbean.getEmail());
+			pstmt.setString(3, boarbean.getTitle());
+			pstmt.setString(4, boarbean.getPassword());
 			pstmt.setInt(5, ref);
 			pstmt.setInt(6, reStep);
 			pstmt.setInt(7, reLevel);
-			pstmt.setString(8, boardBean.getContent());
+			pstmt.setString(8, boarbean.getContent());
 
 			// 쿼리실행
 			pstmt.executeUpdate();
@@ -144,15 +144,14 @@ public class BoardDAO {
 		getConnection();
 
 		try {
-			// 조회수 증가 쿼리 : 게시글을 클릭하면 조회수가 +1 씩증가한다. 
+			// 조회수 증가 쿼리 : 게시글을 클릭하면 조회수가 +1 씩증가한다.
 			String readCountSql = "update board set read_count = read_count+1 where num=?";
-			
+
 			pstmt = conn.prepareStatement(readCountSql);
 			pstmt.setInt(1, num);
-			
+
 			pstmt.executeUpdate();
-			
-			
+
 			// 특정 게시글 조회 쿼리 : 번호 num인 특정 게시글 1개를 조회
 			String readSql = "select * from board where num=?";
 
@@ -177,7 +176,7 @@ public class BoardDAO {
 				board.setContent(rs.getString(11));
 			}
 			conn.close();
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -185,4 +184,50 @@ public class BoardDAO {
 		// 조회한 게시물 정보가 담긴 BoardBean 객체 반환
 		return board;
 	}
+
+	// 답글 생성하기
+	public void reWriteBoard(BoardBean boardbean) {
+		// 부모 게시글 그룹 글레벨 그스텝을 갖고옴
+		int ref = boardbean.getRef();
+		int re_step = boardbean.getRe_step();
+		int re_level = boardbean.getRe_level();
+
+		getConnection();
+
+		try {
+			// 부모 글 보다 큰 re_level의 값을 전부 1씩 증가
+			// 조건 동일한 그룹내의 글 이며,현재 level이 현재 _level보다 높은 글만
+
+			// 이유 : 새로운 답글이 추가될 때 기존의 답글들이 올바른 계층 구조를 유지하도록
+			String levelsql = "upatate board set re_level = re_level+1 where ref=? and re_level > ?";
+
+			pstmt = conn.prepareStatement(levelsql);
+
+			// 답글 입력 데이터를 저장
+//			String sql = "insert into board values (board_seq.NEXTVAL, ?, ?, ?, ?, sysdate, ?, ?, ?, 0, ?)";
+			String sql = "insert into board (num, writer, email, title, password, reg_date, ref, re_step, re_level, read_count, content) "
+					+ "values (board_seq.NEXTVAL, ?, ?, ?, ?, sysdate, ?, ?, ?, 0, ?)";
+
+			pstmt = conn.prepareStatement(sql);
+
+			// ? 값 대입
+			pstmt.setString(1, boardbean.getWriter());
+			pstmt.setString(2, boardbean.getEmail());
+			pstmt.setString(3, boardbean.getTitle());
+			pstmt.setString(4, boardbean.getPassword());
+			pstmt.setInt(5, boardbean.getRef()); // 부모의 글그룹 ref 값
+			pstmt.setInt(6, boardbean.getRe_step() + 1); // 답글의 스텝 값: 부모의 step 값 + 1
+			pstmt.setInt(7, boardbean.getRe_level() + 1);// 답글의 레벨 값: 부모의 level 값 + 1
+			pstmt.setString(8, boardbean.getContent());
+
+			pstmt.executeUpdate();
+
+			conn.close();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+
+		}
+	}
+
 }

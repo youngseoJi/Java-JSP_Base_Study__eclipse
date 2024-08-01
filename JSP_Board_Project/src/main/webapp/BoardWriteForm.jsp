@@ -26,7 +26,7 @@ h2 {
 margin:10px;
 }
 table {
-	width: 500px;
+	width: 600px;
 	border-collapse: collapse;
 	border: 1px solid gray;
 }
