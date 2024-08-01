@@ -42,7 +42,7 @@ public class BoardDAO {
 
 	// 새로운 게시글 생성하기 (저장하기)
 	// 입력폼에 입력한 게시글 데이터 저장하기
-	public void insertBoard(BoardBean boarbean) {
+	public void insertBoard(BoardBean boardbean) {
 
 		getConnection();
 
@@ -75,14 +75,14 @@ public class BoardDAO {
 
 			pstmt = conn.prepareStatement(sql);
 
-			pstmt.setString(1, boarbean.getWriter());
-			pstmt.setString(2, boarbean.getEmail());
-			pstmt.setString(3, boarbean.getTitle());
-			pstmt.setString(4, boarbean.getPassword());
+			pstmt.setString(1, boardbean.getWriter()); // writer
+			pstmt.setString(2, boardbean.getEmail()); // email
+			pstmt.setString(3, boardbean.getTitle()); // title
+			pstmt.setString(4, boardbean.getPassword()); // password
 			pstmt.setInt(5, ref);
-			pstmt.setInt(6, reStep);
-			pstmt.setInt(7, reLevel);
-			pstmt.setString(8, boarbean.getContent());
+			pstmt.setInt(6, reStep); // re_step
+			pstmt.setInt(7, reLevel); // re_level
+			pstmt.setString(8, boardbean.getContent()); // content
 
 			// 쿼리실행
 			pstmt.executeUpdate();
@@ -174,7 +174,6 @@ public class BoardDAO {
 				board.setRe_level(rs.getInt("re_level"));
 				board.setRead_count(rs.getInt("read_count"));
 				board.setContent(rs.getString("content"));
-				 System.out.println("Ref: " + board.getRef() + ", Re_step: " + board.getRe_step() + ", Re_level: " + board.getRe_level());
 			}
 			conn.close();
 

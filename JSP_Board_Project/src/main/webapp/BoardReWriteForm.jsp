@@ -92,7 +92,7 @@ button {
 				</tr>
 				<tr>
 					<td>제목</td>
-					<td><input type="text" name="title" value="[답변]"></td>
+					<td><input type="text" name="title" value="[답글]"></td>
 				</tr>
 				<tr>
 					<td>이메일</td>
