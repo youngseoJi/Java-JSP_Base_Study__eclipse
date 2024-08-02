@@ -16,7 +16,7 @@
 }
 
 body {
-	width: 600px;
+	width: 100%;
 	text-align: center;
 	display: flex;
 	justify-content: center;
@@ -28,7 +28,7 @@ h2 {
 }
 
 table {
-	width: 100%;
+	width: 600px;
 	border-collapse: collapse;
 	border: 1px solid gray;
 }
@@ -44,6 +44,11 @@ td {
 	padding: 5px 20px;
 }
 
+
+.board-title {
+	width: 100px;
+}
+
 .board-content {
 	text-align: left;
 	width: 200px;
@@ -51,12 +56,9 @@ td {
 
 .content {
 	height: 300px;
+	width:100%;
 	vertical-align: top;
-	padding: 10px 20px; /* 패딩값 유지 */
-}
-
-.board-title {
-	width: 100px;
+	padding: 10px 20px; 
 }
 
 button {
@@ -81,12 +83,6 @@ button {
 		num에 해당하는 특정 게시글의 정보를 데이터베이스에서 조회하고,
 		이를 게시글 BoardBean 객체 타입으로 가져온다.*/
 		BoardBean board = boardDAO.getOneBoard(num);
-		
-		System.out.println("Board Info:");
-		System.out.println("Num: " + board.getNum());
-		System.out.println("Ref: " + board.getRef());
-		System.out.println("Re_step: " + board.getRe_step());
-		System.out.println("Re_level: " + board.getRe_level());
 	%>
 
 	<section>
@@ -116,15 +112,15 @@ button {
 			</tr>
 			<tr>
 				<td class="board-title">제목</td>
-				<td colspan="4"><%=board.getTitle()%></td>
+				<td class="board-content" colspan="3"><%=board.getTitle()%></td>
 			</tr>
 			<tr>
 				<td class="board-title">내용</td>
-				<td class="board-content content" colspan="4"><%=board.getContent()%></td>
+				<td class="board-content content" colspan="3"><%=board.getContent()%></td>
 			</tr>
 			<tr>
 				<td class="board-title">이메일</td>
-				<td class="board-content" colspan="4"><%=board.getEmail()%></td>
+				<td class="board-content" colspan="3"><%=board.getEmail()%></td>
 			</tr>
 			<!-- 버튼 
 					1. 답글쓰기

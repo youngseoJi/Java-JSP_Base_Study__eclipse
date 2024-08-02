@@ -95,7 +95,7 @@ td {
 					 	// step의 숫자가 클수록 답글에 답글이 많이 달린거라 -1 하며 들여쓰기 ㄴ이 많아진다. 
 					 	for (int j = 0; j < (board.getRe_step() - 1); j++) {
 					 %>
-						<span>" "</span>
+						<span>&nbsp;&nbsp;</span>
 					 <%
 						 }
 						 }

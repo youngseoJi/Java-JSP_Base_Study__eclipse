@@ -44,21 +44,27 @@ td {
 	padding: 5px 20px;
 }
 
-.td-input {
-	width: 400px;
-}
-
-textarea {
-	width: 100%;
-	height: 100px;
-	padding: 10px;
-	line-height: 1.5;
-	border: 1px solid gray;
-}
-
 input {
 	width: 100%;
 }
+
+
+.board-content {
+	text-align: left;
+	width: 200px;
+}
+
+.content {
+	height: 300px;
+	width: 100%;
+	padding: 10px 20px; /* 패딩값 유지 */
+}
+
+.board-title {
+	width: 100px;
+}
+
+
 
 button {
 	padding: 2px 10px;
@@ -71,6 +77,8 @@ td-btn {
 	display: flex;
 	justify-content: flex-end;
 }
+
+
 </style>
 </head>
 <body>
@@ -94,25 +102,41 @@ td-btn {
 
 			<table>
 				<tr>
-					<td>작성자</td>
-					<td class="td-input"><%= board.getWriter() %></td>
+					<td class="board-title">번호</td>
+					<td class="board-content"><%=board.getNum()%></td>
+					<td class="board-title">조회수</td>
+					<td class="board-content"><%=board.getRead_count()%></td>
 				</tr>
 				<tr>
-					<td>제목</td>
-					<td class="td-input"> <input type="text" name="title" value="<%= board.getTitle() %>"></td>
+					<td class="board-title">작성자</td>
+					<td class="board-content"><%=board.getWriter()%></td>
+					<td class="board-title">작성일</td>
+					<td class="board-content"><%=board.getReg_date()%></td>
 				</tr>
 				<tr>
-					<td>이메일</td>
-					<td class="td-input"><%= board.getEmail() %></td>
+					<td class="board-title">제목</td>
+					<td colspan="3"><input type="text"
+						name="title" value="<%=board.getTitle()%>"></td>
+				</tr>
+
+				<tr>
+					<td class="board-title">내용</td>
+					<td colspan="3"><textarea class="board-content content" name="content"
+							rows="10" cols="50"><%=board.getContent()%></textarea></td>
 				</tr>
 				<tr>
-					<td>비밀번호</td>
-					<td class="td-input"><%= board.getPassword() %></td>
+					<td class="board-title">비밀번호</td>
+					<td colspan="3">
+						<input type="password" name="password">
+					</td>
 				</tr>
-				<tr>
-					<td>내용</td>
-				<td class="td-input">
-					<textarea name="content" rows="10" cols="50"><%= board.getContent() %></textarea></td>
+				<tr >
+					<td colspan="4">
+						<button type="submit">수정</button>
+						<button onclick="location.href='BoardList.jsp'">목록</button>
+						
+						<input type="hidden" name="num" value="<%=board.getNum()%>">
+					</td>
 				</tr>
 			</table>
 		</form>
