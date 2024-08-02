@@ -230,7 +230,7 @@ public class BoardDAO {
 		}
 	}
 
-	// BoardUpdate 수정할 특정 게시물 조회하기
+	// BoardUpdate/ delete 수정 및 삭제할 특정 게시물 조회하기
 	public BoardBean getOneUpdateBoard(int num) {
 		// 리턴 타입 선언 / 결과를 저장할 BoardBean 객체 생성
 		BoardBean board = new BoardBean();
@@ -302,25 +302,51 @@ public class BoardDAO {
 
 	// 게시글 수정하기
 	public void updateBoard(BoardBean board) {
-		
+
 		getConnection();
-		
+
 		try {
 			// 쿼리 : 선택한 num번 게시글의 수정한 항목의 데이터 제목, 내용을 기존 데이터를 수정한다.
-			String sql ="update board set title=?, content=? where num=?";
-			pstmt = conn.prepareStatement(sql);
-			
+			String UpdateSql = "update board set title=?, content=? where num=?";
+			pstmt = conn.prepareStatement(UpdateSql);
+
 			// ? 값 대입
 			pstmt.setString(1, board.getTitle());
 			pstmt.setString(2, board.getContent());
 			pstmt.setInt(3, board.getNum());
+
+			pstmt.executeUpdate();
+
+			conn.close();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	
+	// 게시글 삭제하기
+	
+	public void deleteBoard(int num) {
+		
+		getConnection();
+		
+		
+		try {
+			// 쿼리 : num번의 게시글을 삭제한다.
+			String deleteSql = "delete from board where num = ?";
+
+			pstmt = conn.prepareStatement(deleteSql);
+			
+			
+			// ?값 대입 
+			pstmt.setInt(1, num);
 			
 			pstmt.executeUpdate();
 			
-			conn.close();
-		
-		} catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		}
+		
+	}
 }
