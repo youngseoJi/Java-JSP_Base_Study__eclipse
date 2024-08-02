@@ -137,7 +137,7 @@ public class BoardDAO {
 		return boardList;
 	}
 
-	// 특정 게시물 조회하기
+	// BoardInfo 특정 게시물 조회하기
 	public BoardBean getOneBoard(int num) {
 		// 리턴 타입 선언 / 결과를 저장할 BoardBean 객체 생성
 		BoardBean board = new BoardBean();
@@ -229,6 +229,49 @@ public class BoardDAO {
 			e.printStackTrace();
 
 		}
+	}
+
+	
+	
+
+	// BoardUpdate 수정할 특정 게시물 조회하기
+	public BoardBean getOneUpdateBoard(int num) {
+		// 리턴 타입 선언 / 결과를 저장할 BoardBean 객체 생성
+		BoardBean board = new BoardBean();
+		getConnection();
+
+		try {
+			// 특정 게시글 조회 쿼리 : 번호 num인 특정 게시글 1개를 조회
+			String readSql = "select * from board where num=?";
+
+			// 쿼리 실행 객체
+			pstmt = conn.prepareStatement(readSql);
+			pstmt.setInt(1, num);
+
+			// 쿼리 실행 결과 리턴
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				board.setNum(rs.getInt("num"));
+				board.setWriter(rs.getString("writer"));
+				board.setEmail(rs.getString("email"));
+				board.setTitle(rs.getString("title"));
+				board.setPassword(rs.getString("password"));
+				board.setReg_date(rs.getDate("reg_date").toString());
+				board.setRef(rs.getInt("ref"));
+				board.setRe_step(rs.getInt("re_step"));
+				board.setRe_level(rs.getInt("re_level"));
+				board.setRead_count(rs.getInt("read_count"));
+				board.setContent(rs.getString("content"));
+			}
+			conn.close();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		// 조회한 게시물 정보가 담긴 BoardBean 객체 반환
+		return board;
 	}
 
 }

@@ -19,12 +19,13 @@ body {
 	text-align: center;
 	display: flex;
 	justify-content: center;
-	margin:20px;
+	margin: 20px;
 }
 
 h2 {
-margin:10px;
+	margin: 10px;
 }
+
 table {
 	width: 600px;
 	border-collapse: collapse;
@@ -64,11 +65,10 @@ button {
 }
 
 td-btn {
-text-align: right;
+	text-align: right;
 	width: 100%;
 	display: flex;
 	justify-content: flex-end;
-	
 }
 
 /* .all-btn {
