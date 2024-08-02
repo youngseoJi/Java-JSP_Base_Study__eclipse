@@ -198,12 +198,11 @@ public class BoardDAO {
 			// 부모 글 보다 큰 re_level의 값을 전부 1씩 증가
 			// 조건 동일한 그룹내의 글 이며,현재 level이 현재 _level보다 높은 글만
 
-			//기존 답글의 re_level을 증가시키기 위해 쿼리 실행
+			// 기존 답글의 re_level을 증가시키기 위해 쿼리 실행
 			String levelsql = "upatate board set re_level = re_level+1 where ref=? and re_level > ?";
 
 			pstmt = conn.prepareStatement(levelsql);
-			
-			
+
 			// 새 답글 추가
 //			String sql = "insert into board values (board_seq.NEXTVAL, ?, ?, ?, ?, sysdate, ?, ?, ?, 0, ?)";
 			String sql = "insert into board (num, writer, email, title, password, reg_date, ref, re_step, re_level, read_count, content) "
@@ -230,9 +229,6 @@ public class BoardDAO {
 
 		}
 	}
-
-	
-	
 
 	// BoardUpdate 수정할 특정 게시물 조회하기
 	public BoardBean getOneUpdateBoard(int num) {
@@ -274,4 +270,57 @@ public class BoardDAO {
 		return board;
 	}
 
+	// 기존 패스워드 값을 리턴하기
+	// 수정 or 삭제할 글의 패스워드 값을 갖고와서 입력한 패스워드와 비교하기위한 것
+	public String getCurrentPassword(int num) {
+
+		// 변수 객체 선언 (반환 값)
+		String password = "";
+
+		getConnection();
+
+		try {
+			// 쿼리 준비 : 수정할 num번 게시글의 비밀번호
+			String sql = "select password from board where num=?";
+
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			rs = pstmt.executeQuery();
+
+			// 패스워드
+			if (rs.next()) {
+				password = rs.getString(1);
+			}
+
+			conn.close();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return password;
+	}
+
+	// 게시글 수정하기
+	public void updateBoard(BoardBean board) {
+		
+		getConnection();
+		
+		try {
+			// 쿼리 : 선택한 num번 게시글의 수정한 항목의 데이터 제목, 내용을 기존 데이터를 수정한다.
+			String sql ="update board set title=?, content=? where num=?";
+			pstmt = conn.prepareStatement(sql);
+			
+			// ? 값 대입
+			pstmt.setString(1, board.getTitle());
+			pstmt.setString(2, board.getContent());
+			pstmt.setInt(3, board.getNum());
+			
+			pstmt.executeUpdate();
+			
+			conn.close();
+		
+		} catch(Exception e){
+			e.printStackTrace();
+		}
+		}
 }
