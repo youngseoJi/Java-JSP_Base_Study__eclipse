@@ -15,12 +15,19 @@
 	padding: 0;
 }
 
+
 body {
 	width: 100%;
 	text-align: center;
 	display: flex;
 	justify-content: center;
 	margin: 20px;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 h2 {
@@ -34,8 +41,9 @@ table {
 }
 
 tr {
-	height: 40px;
+	height: 50px;
 	border: 1px solid gray;
+	padding: 5px 20px;
 }
 
 td {
@@ -56,7 +64,6 @@ td {
 
 .content {
 	height: 300px;
-	width:100%;
 	vertical-align: top;
 	padding: 10px 20px; 
 }
@@ -64,6 +71,7 @@ td {
 button {
 	padding: 2px 10px;
 	margin-left: 10px;
+	
 }
 
 </style>
@@ -150,6 +158,9 @@ button {
 			</tr> 
 		</table>
 	</section>
+
+	
+	
 
 </body>
 </html>

@@ -18,11 +18,18 @@
 }
 
 body {
-	width: 100%;
-	text-align: center;
-	display: flex;
-	justify-content: center;
-	margin: 20px;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 a {

@@ -15,12 +15,21 @@
 	padding: 0;
 }
 
+
 body {
 	width: 100%;
+	height:auto;
 	text-align: center;
 	display: flex;
 	justify-content: center;
 	margin: 20px;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+     justify-content: center;
 }
 
 h2 {
@@ -34,7 +43,7 @@ table {
 }
 
 tr {
-	height: 40px;
+	height: 50px;
 	border: 1px solid gray;
 }
 
@@ -46,6 +55,7 @@ td {
 
 input {
 	width: 100%;
+	padding: 5px 10px;
 }
 
 
@@ -57,13 +67,12 @@ input {
 .content {
 	height: 300px;
 	width: 100%;
-	padding: 10px 20px; /* 패딩값 유지 */
+	padding: 5px 10px; 
 }
 
 .board-title {
 	width: 100px;
 }
-
 
 
 button {
