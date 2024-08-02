@@ -15,10 +15,18 @@
 
 body {
 	width: 100%;
+	height: 100vh;
 	text-align: center;
 	display: flex;
 	justify-content: center;
-	margin: 20px;
+	align-items: center;
+	margin: 0;
+}
+
+section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 h2 {
@@ -32,7 +40,7 @@ table {
 }
 
 tr {
-	height: 40px;
+	height: 50px;
 	border: 1px solid gray;
 }
 
@@ -42,26 +50,27 @@ td {
 	padding: 5px 20px;
 }
 
-.td-input {
+input {
+	width: 100%;
+	padding: 5px 10px;
+}
+
+.board-content {
+	text-align: left;
 	width: 400px;
 }
 
-textarea {
+.content {
+	height: 300px;
 	width: 100%;
-	height: 100px;
-	padding: 10px;
-	line-height: 1.5;
-	border: 1px solid gray;
-}
-
-input {
-	width: 100%;
+	padding: 5px 10px;
 }
 
 button {
 	padding: 2px 10px;
 	margin-left: 10px;
 }
+
 </style>
 </head>
 
@@ -87,24 +96,24 @@ button {
 			<table>
 				<tr>
 					<td>작성자</td>
-					<td class="td-input"><input type="text" name="writer">
+					<td class="board-content"><input type="text" name="writer">
 					</td>
 				</tr>
 				<tr>
 					<td>제목</td>
-					<td><input type="text" name="title" value="[답글]"></td>
+					<td class="board-content"><input type="text" name="title" value="[답글]"></td>
 				</tr>
 				<tr>
 					<td>이메일</td>
-					<td class="td-input"><input type="email" name="email"></td>
+					<td class="board-content"><input type="email" name="email"></td>
 				</tr>
 				<tr>
 					<td>비밀번호</td>
-					<td class="td-input"><input type="password" name="password"></td>
+					<td class="board-content"><input type="password" name="password"></td>
 				</tr>
 				<tr>
 					<td>내용</td>
-					<td class="td-input"><textarea name="content" rows="10"
+					<td class="board-content"><textarea name="content" rows="10"
 							cols="50"></textarea></td>
 				</tr>
 

@@ -16,10 +16,18 @@
 
 body {
 	width: 100%;
+	height: 100vh;
 	text-align: center;
 	display: flex;
 	justify-content: center;
-	margin: 20px;
+	align-items: center;
+	margin: 0;
+}
+
+section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 h2 {
@@ -33,7 +41,7 @@ table {
 }
 
 tr {
-	height: 40px;
+	height: 50px;
 	border: 1px solid gray;
 }
 
@@ -43,20 +51,20 @@ td {
 	padding: 5px 20px;
 }
 
-.td-input {
+input {
+	width: 100%;
+	padding: 5px 10px;
+}
+
+.board-content {
+	text-align: left;
 	width: 400px;
 }
 
-textarea {
+.content {
+	height: 300px;
 	width: 100%;
-	height: 100px;
-	padding: 10px;
-	line-height: 1.5;
-	border: 1px solid gray;
-}
-
-input {
-	width: 100%;
+	padding: 5px 10px;
 }
 
 button {
@@ -64,12 +72,7 @@ button {
 	margin-left: 10px;
 }
 
-td-btn {
-	text-align: right;
-	width: 100%;
-	display: flex;
-	justify-content: flex-end;
-}
+
 
 /* .all-btn {
 	width: 100px;
@@ -85,32 +88,31 @@ td-btn {
 			<table>
 				<tr>
 					<td>작성자</td>
-					<td class="td-input"><input type="text" name="writer"></td>
+					<td class="board-content"><input type="text" name="writer"></td>
 				</tr>
 				<tr>
 					<td>제목</td>
-					<td class="td-input"><input type="text" name="title"></td>
+					<td class="board-content"><input type="text" name="title"></td>
 				</tr>
 				<tr>
 					<td>이메일</td>
-					<td class="td-input"><input type="email" name="email"></td>
+					<td class="board-content"><input type="email" name="email"></td>
 				</tr>
 				<tr>
 					<td>비밀번호</td>
-					<td class="td-input"><input type="password" name="password"></td>
+					<td class="board-content"><input type="password"
+						name="password"></td>
 				</tr>
 				<tr>
 					<td>내용</td>
-					<td class="td-input"><textarea name="content" rows="10"
-							cols="50"></textarea></td>
+					<td><textarea class="board-content content" name="content"
+							rows="10" cols="50"></textarea></td>
 				</tr>
 				<tr>
 
 					<td class="td-btn" colspan="2">
-						<button type="submit">작성하기</button>
-						<button type="reset">수정하기</button>
-						<button class="all-btn" onclick="location.href='BoardList.jsp'">전체
-							게시글</button>
+						<button type="submit">완료</button>
+						<button onclick="location.href='BoardList.jsp'">목록</button>
 					</td>
 				</tr>
 			</table>
