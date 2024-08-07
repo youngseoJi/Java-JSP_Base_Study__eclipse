@@ -95,19 +95,48 @@ public class BoardDAO {
 		}
 	}
 
-	// 모든 게시글 조회하기
-	public Vector<BoardBean> getAllBoard() {
+	// 한 페이지에 보여지는 게시글 조회하기
+	public Vector<BoardBean> getAllBoard(int startRow, int endRow) {
 		// BoardBean 타입의 객체들을 저장할 Vector 타입 인스턴스를 생성합니다.
 		Vector<BoardBean> boardList = new Vector<>();
 		getConnection();
 
 		try {
-			// 쿼리 준비 :
-			String sql = "select * from board order by ref desc, re_step asc";
+			// 쿼리 준비 : 페이징 처리를 위해 특정 범위의 게시글만 조회하기
+
+//			String sql = "select * from ("
+//					// 중간 서브 쿼리 : 내부 쿼리의 결과에 ROWNUM을 추가하여 결과의 각 행에 순차적으로 번호를 할당
+//					+ "select A.*, Rownum Rnum from ("
+//					// 내부 서브쿼리 : 보드 테이블의 모든 컬럼을 ref 컬럼을 기준으로 오름차순으로 정리하여 조회
+//					+ "select * from board order by ref desc, re_step asc) A"
+//// 외부 쿼리 : ROWNUM이 매개변수 범위 안에 있을 때만 해당 행일 경우만 
+//					+ ") where Rnum > ? and Rnum <= ?";
+
+//			String sql = "SELECT * FROM ("
+//					+ "    SELECT inner_query.*, ROWNUM rnum FROM ("
+//					+ "        SELECT * FROM board ORDER BY ref DESC, re_step ASC"
+//					+ "    ) inner_query"
+//					/* 최대 ROWNUM */
+//					+ "    WHERE ROWNUM <= ?"
+//					 /* 최소 ROWNUM */
+//					+ ") WHERE rnum >= ?"; 
+//					
+//			String sql = "SELECT * FROM (" + "SELECT a.*, ROWNUM rnum FROM ("
+//					+ "SELECT * FROM board ORDER BY ref DESC, re_step ASC) a " + "WHERE ROWNUM <= ?) "
+//					+ "WHERE rnum >= ?";
+
+			 String sql = "SELECT * FROM (SELECT A.*, ROWNUM rnum FROM (SELECT * FROM board ORDER BY ref DESC, re_step ASC) A WHERE ROWNUM <= ?) WHERE rnum >= ?";
+
+		        // 쿼리 실행할 객체 선언
+		        pstmt = conn.prepareStatement(sql);
+		        pstmt.setInt(1, endRow);
+		        pstmt.setInt(2, startRow);
 
 			// 쿼리 실행할 객체 선언
-			pstmt = conn.prepareStatement(sql);
-
+//			pstmt = conn.prepareStatement(sql);
+//			pstmt.setInt(1, startRow);
+//			pstmt.setInt(2, endRow);
+			
 			// 쿼리 실행 후 결과 저장
 			rs = pstmt.executeQuery();
 
@@ -324,29 +353,55 @@ public class BoardDAO {
 		}
 	}
 
-	
 	// 게시글 삭제하기
-	
+
 	public void deleteBoard(int num) {
-		
+
 		getConnection();
-		
-		
+
 		try {
 			// 쿼리 : num번의 게시글을 삭제한다.
 			String deleteSql = "delete from board where num = ?";
 
 			pstmt = conn.prepareStatement(deleteSql);
-			
-			
-			// ?값 대입 
+
+			// ?값 대입
 			pstmt.setInt(1, num);
-			
+
 			pstmt.executeUpdate();
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
+	}
+
+	// 전체 게시글 개수 조회
+
+	public int getAllCount() {
+		getConnection();
+
+		int AllBoaldCount = 0;
+
+		try {
+			// 쿼리 : 보드 테이블의 모든 행의 개수 -> 게시글 의 개수를 조회한다.
+			String selectSql = "select count(*) from board";
+
+			pstmt = conn.prepareStatement(selectSql);
+
+			// 쿼리 실핼 후 결과반환
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				// 현재 행의 첫 번째 컬럼 값(정수형) 갖고오기 -> 쿼리의 결과는 1개 행과 컬럼(전체 게시글 수)만 있기에, 전체 기시글 개수를
+				// 갖고온다.
+				AllBoaldCount = rs.getInt(1);
+			}
+			conn.close();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return AllBoaldCount;
 	}
 }

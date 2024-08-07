@@ -13,6 +13,7 @@ public class BoardVo {
 	private String writer;
 	private String content;
 	private Date regdate;    
+	private int cnt;
 	
 	//  default 기본 생성자
 	public BoardVo() {
@@ -66,13 +67,7 @@ public class BoardVo {
 	public void setCnt(int cnt) {
 		this.cnt = cnt;
 	}
-//	값 확인을 위한
-	@Override
-	public String toString() {
-		return "BoarVo [num=" + num + ", title=" + title + ", writer=" + writer + ", content=" + content + ", regdate="
-				+ regdate + ", cnt=" + cnt + "]";
-	}
-	
+
 
 	
 	
