@@ -11,11 +11,11 @@
 <body>
 	<%-- WEB-INF > lib : jstl-xxx-impl.jar 라이브러리 추가 --%>
 
-	<!-- 접두사 c: jstl
+	<%-- 접두사 c: jstl
 	
 	
-	 c:forEach  var="반복변수" begin="시작값" end="종료값" step="증감치" 
-	 -->
+	< c:forEach>  var="반복변수" begin="시작값" end="종료값" step="증감치" 
+	 --%>
 	<c:forEach var="k" begin="1" end="10" step="1">
 		<!-- for문과 동일 -->
 		<%
