@@ -1,26 +1,38 @@
 package DTO;
 
+import java.util.Date;
+
 public class Board {
-	
-	private int no;
-	private String title;
-	private String writer;
-	private String content;
-	private String regDate;
-	private String upDtate;
-	
+
+	private int no; // 번호
+	private String title; // 제목
+	private String writer; // 작성자
+	private String content; // 내용
+	private Date regDate; // 등록일자
+	private Date upDtate; // 수정일자
+
+	// 기본 생성자 (매개변수가 없는 생성자) : 객체 초기화 
 	public Board() {
-		
-		this.title = "없음";
-		this.writer = "없음";
-		this.content = "없음";
+
+		this.title = "무제";
+		this.writer = "";
+		this.content = "";
 	}
 
 	public Board(String title, String writer, String content) {
-		
+
 		this.title = title;
 		this.writer = writer;
 		this.content = content;
+;	}
+
+	public Board(int no, String title, String writer, String content) {
+
+		this.title = title;
+		this.writer = writer;
+		this.content = content;
+		this.regDate = new Date();
+		this.upDtate = new Date();
 	}
 
 	public int getNo() {
@@ -55,19 +67,19 @@ public class Board {
 		this.content = content;
 	}
 
-	public String getRegDate() {
+	public Date getRegDate() {
 		return regDate;
 	}
 
-	public void setRegDate(String regDate) {
+	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
 	}
 
-	public String getUpDtate() {
+	public Date getUpDtate() {
 		return upDtate;
 	}
 
-	public void setUpDtate(String upDtate) {
+	public void setUpDtate(Date upDtate) {
 		this.upDtate = upDtate;
 	}
 
@@ -76,7 +88,5 @@ public class Board {
 		return "Board [no=" + no + ", title=" + title + ", writer=" + writer + ", content=" + content + ", regDate="
 				+ regDate + ", upDtate=" + upDtate + "]";
 	}
-	
-		
-	
+
 }
