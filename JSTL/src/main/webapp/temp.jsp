@@ -21,27 +21,6 @@
 	String name = "김조은1";
 	%>
 
-	<!-- 스크립틀릿 변수 출력 -->
-	<%
-	out.print(name);
-	%>
-
-	<hr>
-
-	<!-- JSTL 변수 선언 : c:set -->
-
-	<%-- 	<c:set var="변수명" value="값" /> --%>
-	<c:set var="name" value="김조은2" />
-	<c:set var="number" value="10" />
-	
-
-	<!-- JSTL 변수 참조/출력 : c:out -->
-
-	<%-- ${name} : 표현언어 사
-			JSTL 선언한 변수는 표현문으로 사용불가 ex) <%= name %> 
- 		--%>
-	<c:out value="${name}" />
-	<br>
 
 
 	<!-- 단일 조건 : c:if
